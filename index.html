@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta
+      name="description"
+      content="A blog about econometrics, politics, and computer science."
+    />
+    <title>EPC Blog</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Your existing styles */
+      img {
+        width: 100px;
+        border-radius: 50px;
+        float: left;
+        margin-right: 10px;
+      }
+
+      .username {
+        font-weight: bold;
+      }
+
+      .background-image {
+        /* Set background image to amsterdam.jpg */
+        background-image: url("images/amsterdam.jpg");
+        /* Set background size to cover the entire container */
+        background-size: cover;
+        /* Set background position to center */
+        background-position: center;
+        /* Set background attachment to fixed to keep the image fixed when scrolling */
+        background-attachment: fixed;
+        /* Set background repeat to no-repeat to avoid repetition */
+        background-repeat: no-repeat;
+        /* Set opacity to make the background semi-transparent */
+        opacity: 0.8;
+        /* Set height to cover the entire viewport */
+        height: 100vh;
+        /* Set position to absolute to position the background behind other content */
+        position: absolute;
+        /* Set width to cover the entire viewport */
+        width: 100%;
+        /* Set z-index to ensure the background is behind other content */
+        z-index: -1;
+      }
+
+      /* New styles for article containers */
+      .article-container {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .article-container:hover {
+        transform: translateY(
+          -5px
+        ); /* Move the container up slightly on hover */
+      }
+
+      .article-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .article-content {
+        padding: 20px;
+        background-color: rgba(241, 236, 236, 0.7);
+        border-radius: 10px;
+        color: #131313;
+      }
+
+      #blog {
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+
+      .blog-box-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Spacing between blog boxes */
+      }
+
+      .blog-box {
+        width: calc(
+          25% - 20px
+        ); /* Each blog box takes up 25% of the container width with spacing */
+        padding: 20px;
+        background-color: rgba(
+          241,
+          236,
+          236,
+          0.7
+        ); /* Black background with 70% opacity */
+        border-radius: 10px;
+        color: #131313; /* White text color */
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
+      }
+
+      ::-webkit-scrollbar-track {
+        background: transparent; /* Transparent track */
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2); /* Semi-transparent thumb */
+        border-radius: 6px; /* Rounded corners */
+        border: 2px solid transparent; /* Transparent border */
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.4); /* Darker thumb color on hover */
+      }
+
+      .blog-box h2 {
+        margin-top: 0;
+      }
+
+      #menu-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 10;
+        cursor: pointer;
+        font-size: 24px; /* Increase font size */
+        padding: 10px 20px; /* Increase padding */
+        border-radius: 5px; /* Add border radius */
+        background-color: transparent; /* Transparent background */
+        color: #fff; /* White text color */
+        border: none; /* Remove border */
+        transition: background-color 0.3s; /* Smooth transition */
+      }
+
+      #menu-btn:hover {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.2
+        ); /* White transparent background on hover */
+      }
+
+      .menu {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        z-index: 10;
+        display: none;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* White transparent background */
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .menu a {
+        display: block;
+        padding: 8px 16px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .menu a:hover {
+        background-color: #f0f0f0;
+      }
+
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 101; /* Adjusted z-index */
+        display: none;
+        /* Center the popup */
+        width: 80%; /* Adjust as needed */
+        max-width: 500px; /* Adjust as needed */
+        text-align: center;
+      }
+
+      .blur-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        z-index: 99; /* Ensure it's behind the popup */
+        backdrop-filter: blur(20px); /* Apply the blur effect */
+        display: none; /* Initially hidden */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menu-btn">☰</div>
+    <div class="menu">
+      <a href="#">Econometrics</a>
+      <a href="#">Politics</a>
+      <a href="#">Computer Science</a>
+      <a href="#" id="about-me-btn">About Me</a>
+    </div>
+    <!-- Blurred background wrapper -->
+    <div class="blur-wrapper" id="blurWrapper"></div>
+
+    <!-- About Me popup -->
+    <div id="about-me-popup" class="popup">
+      <h2>About Me</h2>
+      <p>
+        Hello and thank you for visiting my website! My name is Magnus. I'm a
+        20-something year old bloke from Norway that is interested in politics,
+        econometrics, computer sciences and languages (FR/SP). This is a
+        portfolio website since I'll be trying to hone my skills within these
+        subjects. However, I also just enjoy learning a lot and a website is an
+        amazing way to dabble in all sorts of things!
+      </p>
+      <p>
+        This blog is not primarily focused on testing hypothesis derieved from
+        academic theories or literature. In the same vein I am also not trying
+        to actively contribute to sciencetific research. Thus while original
+        ideas certainly have value -I'll also look into research questions which
+        have been explored before(by far more competent people) simply because I
+        find the topic interesting and want to learn more about it.
+      </p>
+      <button id="close-popup-btn">Close</button>
+    </div>
+    <div class="background-image"></div>
+    <!-- Create a container for the background image -->
+    <div class="content">
+      <h1>EPC blog</h1>
+      <h2>
+        <em>E</em>conometrics, <em>P</em>olitics and <em>C</em>omputer science
+      </h2>
+      <img src="images/bildeavdegcv.png" alt="An image of me" />
+      <p class="">"tottelotten</p>
+      <p>Learning HTML</p>
+    </div>
+
+    <section id="blog">
+      <!-- Script to fetch and render articles -->
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      <script>
+        // Function to fetch and render articles
+        async function fetchAndRenderArticles() {
+          const articleList = document.getElementById("article-list");
+
+          try {
+            // Fetch Markdown content from your GitHub repository
+            const response = await fetch(
+              "https://raw.githubusercontent.com/your_username/your_repository/main/articles/article1.md"
+            );
+            const markdownContent = await response.text();
+
+            // Convert Markdown to HTML
+            const htmlContent = marked(markdownContent);
+
+            // Append HTML content to article list
+            articleList.innerHTML += htmlContent;
+          } catch (error) {
+            console.error("Error fetching and rendering articles:", error);
+          }
+        }
+
+        // Call fetchAndRenderArticles function to display articles
+        fetchAndRenderArticles();
+      </script>
+      <script src="script.js"></script>
+    </section>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.querySelector(".menu");
+      const aboutMeBtn = document.getElementById("about-me-btn");
+      const aboutMePopup = document.getElementById("about-me-popup");
+      const closePopupBtn = document.getElementById("close-popup-btn");
+      const blurWrapper = document.getElementById("blurWrapper"); // Select the blur wrapper
+
+      menuBtn.addEventListener("mouseenter", () => {
+        menu.style.display = "block";
+      });
+
+      menu.addEventListener("mouseleave", () => {
+        menu.style.display = "none";
+      });
+
+      aboutMeBtn.addEventListener("click", () => {
+        aboutMePopup.style.display = "block";
+        blurWrapper.style.display = "block"; // Show the blur wrapper
+      });
+
+      closePopupBtn.addEventListener("click", () => {
+        aboutMePopup.style.display = "none";
+        blurWrapper.style.display = "none"; // Hide the blur wrapper
+      });
+    </script>
+  </body>
+</html>
