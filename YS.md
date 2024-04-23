@@ -54,6 +54,10 @@ Appendix:
 In order to assure the validity of validity of the results from my models it is necessary to preform diagnostics tests. Linear mixed regression has various assumptions which are necessary to fulfil for the models to be valid and reliable. These assumptions do not tell us anything about the actual causal relationships or inferences from the results of the regression models, but they are important to preform in order for the results to be valid themselves.
 
 1. Linearity assumption
+![linearity](https://github.com/MKB1109/Blog/blob/81d288398228a4091d91111d3bf9d97b78515758/Bilde3.png)
+
+
+
    print(cor_test_df)
    predictor cor p_value
    cor...1 stflife -2.492075e-15 1
@@ -68,10 +72,17 @@ In order to assure the validity of validity of the results from my models it is 
    cor...10 hincfel -1.005499e-15 1
    cor...11 impcntr -1.031232e-15 1
 
-2. Variance inflation factors(VIF).
 
 3. cook’s distance
    Cook’s distance is a measure to detect outliers. The raw dataset as described in the methological section of this blog post had a case of outliers above 0.004 Cook’s distance when fitted to the null model in this analysis. Thus, datapoints above 0.004 from this model were removed. I considered this important because potential outliers can have an undue influence on the estimates of my model. A sensitivity check was done between the original data and the data used in this analysis. I found the data here to be preferential because of better scaled residual values, better cook’s distance values and better QQ plots. Talk about how many observations u had inititally. The plots here are of the null model.
 
+![Cook's distance](https://github.com/MKB1109/Blog/blob/81d288398228a4091d91111d3bf9d97b78515758/Bilde6.png)
+
 4. Normality of residuals
    If we look at the histogram below then it becomes evident that the residuals are normally distributed. Residuals are the difference between the predicted and observed values of our data. Because of this they are also known as “errors” because they are the “errors” between what we predicted and the actual observations. Since this study used linear regression we have to check if our data can actually be modelled in a linear way, thus it’s important to check the distribution of our erros.
+   
+
+![Residual distribution](https://github.com/MKB1109/Blog/blob/81d288398228a4091d91111d3bf9d97b78515758/Bilde4.png)
+![Residual plot](https://github.com/MKB1109/Blog/blob/81d288398228a4091d91111d3bf9d97b78515758/Bilde5.png)
+
+   
