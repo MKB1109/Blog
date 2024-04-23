@@ -9,7 +9,23 @@ On the other hand, immigration has risen as a salient issue throughout the 2010s
 Methodology:
 In order to investigate this development further I have compiled data from the European Social Survey (ESS) from 2016 ( round 8 of the survey). The case of study of political gender divides in different European countries is in and of itself an interesting research area, but for practical reasons the ESS was chosen since it is quite an easy and accessible dataset to work with. The selection criterions used were to maximize the number of available years for as many countries as possible. I also restricted the analysis to people under 30 for each country per year. I thus ended up with a total of 12 different countries for this time period and N= 4010.
 
-The final dataset is thus structured as a cross-sectional hierarchical dataset, meaning that individuals are nested within countries. For this reason, mixed effects linear regression was an obvious choice for statistical analysis. Mixed effects regression models allow us to control for fixed effects ( i.e individual level predictor variables such as political attitudes) and allows us to account for random effects over different years p. Moreover, the strong assumptions for linear regression are quite beneficial for assurances of model validity. The most vital of these assumptions is that the relationship between the predictors and the outcome variable can be modelled linearly. Other assumptions include the normality of the error terms and the independence of the residuals. Briefly explained; when we assume that the error terms of a linear model are normally distributed, we confirm whether the error terms are spread around zero and if they have a typical bell curve distribution (aka. A normal distribution). The independence of residuals refers to whether the actual values of our model are not correlated with each other. If they were correlated then this would pose a problem because we would be unsure what we were actual measuring and thus could not attribute coefficient estimates to the right predictor in our model. These assumptions and other model fit checks are investigated further in the appendix.
+The final dataset is thus structured as a cross-sectional hierarchical dataset, meaning that individuals are nested within countries. For this reason, mixed effects linear regression was an obvious choice for statistical analysis. Mixed effects regression models allow us to control for fixed effects ( i.e individual level predictor variables such as political attitudes) and allows us to account for random effects over different years p. Moreover, the strong assumptions for linear regression are quite beneficial for assurances of model validity. The most vital of these assumptions is that the relationship between the predictors and the outcome variable can be modelled linearly. Other assumptions include the normality of the residuals and the independence of the residuals(Shaw & Flake). Briefly explained; when we assume that the residuals of a linear model are normally distributed, we confirm whether the residuals are spread around zero and if they have a typical bell curve distribution (aka. A normal distribution). The independence of residuals refers to whether the actual values of our model are not correlated with each other. If they were correlated then this would pose a problem because we would be unsure what we were actual measuring and thus could not attribute coefficient estimates to the right predictor in our model. Residuals are defined as the difference between the obeserved and fitted values in our model(s). These assumptions and other model fit checks are investigated further in the appendix. Below is the description of the variables used in the analysis.
+
+
+
+|Variable                                   |Description                                                     |
+|:------------------------------------------|:---------------------------------------------------------------|
+|Gender                                     |1 = Men, 2 = Women                                              |
+|Attitude towards LGBTQ Rights(freehms)     |1 = Agree Strongly, 5 = Disagree Strongly                       |
+|Immigration Policy(impcntr)                |1 = Allow Many, 2 = Allow Some, 4 = Allow None                  |
+|Income Satisfaction(hincfel)               |1 = Living Comfortably, 4 = Difficult to Live on Current Income |
+|Trust in Political Parties(trstprt)        |0 = No Trust, 10 = Complete Trust                               |
+|Satisfaction with Democrac(stfdem)y        |0 = Extremely Dissatisfied, 10 = Extremely Satisfied            |
+|Satisfaction with National Economy(stfeco) |0 = Extremely Dissatisfied, 10 = Extremely Satisfied            |
+|Impact of Immigrants on Country(imwbcnt)   |0 = Worse Place to Live, 10 = Better Place to Live              |
+|Educational Level(eisced)                  |0 = No Schooling, 7 = MA Level                                  |
+|Life Satisfaction(stflife)                 |0 = Extremely Dissatisfied, 10 = Extremely Satisfied            |
+
 
 Analysis
 By plotting the average difference between men and women’s ideological differences, we can obtain a snapshot of where these potential differences may be the most pronounced. The plot below illustrates this by coding countries according to their mean ideological difference between men and women. The mean difference was in this context calculated as the mean of women minus the mean of the mean. Thus, we can interpret the map below as men in most countries tend to be more conservative (since conservative values are coded as higher in the ESS). Some countries are quite noticeable on either scale. First off, both Ireland and Hungary have tils toward having more conservative women. The mean difference is not substantial as it is only 0.5 points on the political alignment scale. On the other hand, we can see that countries which are seen as gender egalitarian such as Finland and The Netherlands have on average a larger gender divergence by 1 point on the political alignment scale.
@@ -48,33 +64,21 @@ https://ejpr.onlinelibrary.wiley.com/doi/full/10.1111/1475-6765.12517
 Teresa, Hopke. 2022. White Men Are Feeling Left Out Of Diversity, Equity, & Inclusion. Why Should We Care and What Should We Do?https://www.forbes.com/sites/teresahopke/2022/03/30/white-men-are-feeling-left-out-of-dei-diversity-equity--inclusion-why-should-we-care-and-what-should-we-do/
 
 European Social Survey European Research Infrastructure (ESS ERIC) (2023) ESS8 - integrated file, edition 2.3 [Data set]. Sikt - Norwegian Agency for Shared Services in Education and Research. https://doi.org/10.21338/ess8e02_3.
-https://www.trinityservices.org/who-we-are/diversity-equity-inclusion-committee
+
+
+Trinityservices. Fogarty, Tina. https://www.trinityservices.org/who-we-are/diversity-equity-inclusion-committee
+
+Shaw, Mairead & Flake, K. Jessica. https://www.learn-mlms.com/12-module-12.html
 
 Appendix:
 In order to assure the validity of validity of the results from my models it is necessary to preform diagnostics tests. Linear mixed regression has various assumptions which are necessary to fulfil for the models to be valid and reliable. These assumptions do not tell us anything about the actual causal relationships or inferences from the results of the regression models, but they are important to preform in order for the results to be valid themselves.
 
 1. Linearity assumption
+   The linearity assumption states that our explantory variables should be linearly related to our outcome variable. From the plots shown below, we can see that this assumption is fulfilled. 
 ![linearity](https://github.com/MKB1109/Blog/blob/81d288398228a4091d91111d3bf9d97b78515758/Bilde3.png)
 
-
-
-   print(cor_test_df)
-   predictor cor p_value
-   cor...1 stflife -2.492075e-15 1
-   cor...2 freehms -8.583857e-16 1
-   cor...3 stfeco -4.636724e-16 1
-   cor...4 trstprt -3.175881e-16 1
-   cor...5 stfdem 8.847150e-17 1
-   cor...6 imwbcnt -2.771699e-16 1
-   cor...7 gndr -2.867550e-15 1
-   cor...8 agea -2.675657e-15 1
-   cor...9 eisced -5.429618e-16 1
-   cor...10 hincfel -1.005499e-15 1
-   cor...11 impcntr -1.031232e-15 1
-
-
 3. cook’s distance
-   Cook’s distance is a measure to detect outliers. The raw dataset as described in the methological section of this blog post had a case of outliers above 0.004 Cook’s distance when fitted to the null model in this analysis. Thus, datapoints above 0.004 from this model were removed. I considered this important because potential outliers can have an undue influence on the estimates of my model. A sensitivity check was done between the original data and the data used in this analysis. I found the data here to be preferential because of better scaled residual values, better cook’s distance values and better QQ plots. Talk about how many observations u had inititally. The plots here are of the null model.
+   Cook’s distance is a measure to detect outliers. I chose to color datapoints above 4/n as potential outliers, but as we can see the datapoints are within acceptable range. 
 
 ![Cook's distance](https://github.com/MKB1109/Blog/blob/81d288398228a4091d91111d3bf9d97b78515758/Bilde6.png)
 
@@ -85,4 +89,21 @@ In order to assure the validity of validity of the results from my models it is 
 ![Residual distribution](https://github.com/MKB1109/Blog/blob/81d288398228a4091d91111d3bf9d97b78515758/Bilde4.png)
 ![Residual plot](https://github.com/MKB1109/Blog/blob/81d288398228a4091d91111d3bf9d97b78515758/Bilde5.png)
 
-   
+
+Below we can see the cor.test results from the level 1 predictor variables in our model. This is a test for checking the independence of our residuals. We do this in order to check if our residuals have constant variance. A state of constant variance is good since it means that there is not a pattern in our residuals correlate to our predictors centered within cluster. Since the correlations here are all close to zero, we can determine that they are independent.
+print(cor_test_df)
+         predictor           cor p_value
+cor...1    stflife -2.492075e-15       1
+cor...2    freehms -8.583857e-16       1
+cor...3     stfeco -4.636724e-16       1
+cor...4    trstprt -3.175881e-16       1
+cor...5     stfdem  8.847150e-17       1
+cor...6    imwbcnt -2.771699e-16       1
+cor...7       gndr -2.867550e-15       1
+cor...8       agea -2.675657e-15       1
+cor...9     eisced -5.429618e-16       1
+cor...10   hincfel -1.005499e-15       1
+cor...11   impcntr -1.031232e-15       1
+
+
+
