@@ -19,39 +19,53 @@
         margin-right: 10px;
       }
 
+
       .username {
         font-weight: bold;
       }
 
-      .background-image {
-        /* Set background image to amsterdam.jpg */
-        background-image: url("images/amsterdam.jpg");
-        /* Set background size to cover the entire container */
-        background-size: cover;
-        /* Set background position to center */
-        background-position: center;
-        /* Set background attachment to fixed to keep the image fixed when scrolling */
-        background-attachment: fixed;
-        /* Set background repeat to no-repeat to avoid repetition */
-        background-repeat: no-repeat;
-        /* Set opacity to make the background semi-transparent */
-        opacity: 0.8;
-        /* Set height to cover the entire viewport */
-        height: 100vh;
-        /* Set position to absolute to position the background behind other content */
-        position: absolute;
-        /* Set width to cover the entire viewport */
-        width: 100%;
-        /* Set z-index to ensure the background is behind other content */
-        z-index: -1;
+
+      body {
+      background-image: url("images/pictureWY.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      opacity: 0.8;
+      height: 100vh;
+      position: absolute;
+      width: 100%;
+      z-index: -1;
+    }
+
+
+
+      .article-container {
+        width: calc(
+          25% - 20px
+        ); /* Each article container takes up 25% of the container width with spacing */
+        padding: 10px; /* Reduce padding */
+        background-color: rgba(
+          241,
+          236,
+          236,
+          0.7
+        ); /* Black background with 70% opacity */
+        border-radius: 10px;
+        color: #131313; /* White text color */
+        position: relative; /* Add position relative */
+        overflow: hidden; /* Hide overflowing content */
+        transition: transform 0.3s ease; /* Smooth transition */
       }
 
-      /* New styles for article containers */
-      .article-container {
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.3s ease;
+
+      .article-image {
+        width: 150px; /* Set a specific width for the image */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 10px; /* Apply border radius */
+        margin-bottom: 10px;
       }
+
 
       .article-container:hover {
         transform: translateY(
@@ -59,30 +73,29 @@
         ); /* Move the container up slightly on hover */
       }
 
-      .article-image {
-        width: 100%;
-        height: auto;
-        margin-bottom: 10px;
-      }
 
       .article-content {
         padding: 20px;
-        background-color: rgba(241, 236, 236, 0.7);
-        border-radius: 10px;
-        color: #131313;
       }
+
 
       #blog {
         padding: 20px;
         border-radius: 10px;
         margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap; /* Allow articles to wrap into multiple rows */
+        justify-content: space-between; /* Space articles evenly */
+        gap: 20px; /* Spacing between articles */
       }
+
 
       .blog-box-container {
         display: flex;
         flex-wrap: wrap;
         gap: 20px; /* Spacing between blog boxes */
       }
+
 
       .blog-box {
         width: calc(
@@ -99,14 +112,17 @@
         color: #131313; /* White text color */
       }
 
+
       /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 12px; /* Width of the scrollbar */
       }
 
+
       ::-webkit-scrollbar-track {
         background: transparent; /* Transparent track */
       }
+
 
       ::-webkit-scrollbar-thumb {
         background: rgba(0, 0, 0, 0.2); /* Semi-transparent thumb */
@@ -114,13 +130,16 @@
         border: 2px solid transparent; /* Transparent border */
       }
 
+
       ::-webkit-scrollbar-thumb:hover {
         background: rgba(0, 0, 0, 0.4); /* Darker thumb color on hover */
       }
 
+
       .blog-box h2 {
         margin-top: 0;
       }
+
 
       #menu-btn {
         position: absolute;
@@ -137,6 +156,7 @@
         transition: background-color 0.3s; /* Smooth transition */
       }
 
+
       #menu-btn:hover {
         background-color: rgba(
           255,
@@ -145,6 +165,7 @@
           0.2
         ); /* White transparent background on hover */
       }
+
 
       .menu {
         position: absolute;
@@ -163,6 +184,7 @@
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       }
 
+
       .menu a {
         display: block;
         padding: 8px 16px;
@@ -170,9 +192,11 @@
         color: #333;
       }
 
+
       .menu a:hover {
         background-color: #f0f0f0;
       }
+
 
       .popup {
         position: fixed;
@@ -190,6 +214,7 @@
         text-align: center;
       }
 
+
       .blur-wrapper {
         position: fixed;
         top: 0;
@@ -201,9 +226,71 @@
         backdrop-filter: blur(20px); /* Apply the blur effect */
         display: none; /* Initially hidden */
       }
+
+     /* Add this CSS to your existing styles */
+#language-btn {
+  position: absolute;
+  top: 20px;
+  right: 100px; /* Adjust as needed */
+  z-index: 10;
+  cursor: pointer;
+  font-size: 18px; /* Adjust as needed */
+  padding: 20px 20px; /* Increase padding */
+  border-radius: 5px; /* Add border radius */
+  background-color: transparent; /* Transparent background */
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+#language-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* White transparent background on hover */
+}
+
+#language-menu {
+  position: absolute;
+  top: 60px;
+  right: 100px; /* Adjust as needed */
+  z-index: 10;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.9); /* White transparent background */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Hide scrollbar by default */
+}
+
+#language-btn:hover + #language-menu,
+#language-btn:hover ~ #language-menu { /* Changed selector to target any sibling, not just immediately adjacent */
+  display: block;
+  overflow-y: auto; /* Display scrollbar when hovering over language menu */
+}
+
+.language-option {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+}
+
+.language-option:hover {
+  background-color: #f0f0f0;
+}
+
+
+
     </style>
   </head>
+
   <body>
+    <div><button id="language-btn" class="language-menu-btn">Language
+      <a href="#" class="language-option" data-lang="en">EN</a>
+      <a href="#" class="language-option" data-lang="fr">FR</a>
+      <a href="#" class="language-option" data-lang="es">ES</a>
+    </button>
+    </div>
+
+
     <div id="menu-btn">☰</div>
     <div class="menu">
       <a href="#">Econometrics</a>
@@ -213,6 +300,7 @@
     </div>
     <!-- Blurred background wrapper -->
     <div class="blur-wrapper" id="blurWrapper"></div>
+
 
     <!-- About Me popup -->
     <div id="about-me-popup" class="popup">
@@ -235,23 +323,24 @@
       </p>
       <button id="close-popup-btn">Close</button>
     </div>
-    <div class="background-image"></div>
-    <!-- Create a container for the background image -->
     <div class="content">
       <h1>EPC blog</h1>
-      <h2>
-        <em>E</em>conometrics, <em>P</em>olitics and <em>C</em>omputer science
-      </h2>
       <img src="images/bildeavdegcv.png" alt="An image of me" />
-      <p class="">"tottelotten</p>
-      <p>Learning HTML</p>
+      <p class="">Contact: EPCblog@gmail.com</p>
+      <p>A blog about econometrics, politics and computer science</p>
     </div>
 
-    <section id="blog">
+
+    <section id="blog" class="background-image">
+  </a>
+</div>
+      </div>
+
+
       <!-- Script to fetch and render articles -->
       <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
       <script>
- async function fetchAndRenderArticles() {
+       async function fetchAndRenderArticles() {
   const articleContainer = document.getElementById("blog");
 
   try {
@@ -285,7 +374,6 @@
 // Call fetchAndRenderArticles function to display articles
 fetchAndRenderArticles();
 
-
         // Call fetchAndRenderArticles function to display articles
         fetchAndRenderArticles();
       </script>
@@ -298,24 +386,48 @@ fetchAndRenderArticles();
       const aboutMePopup = document.getElementById("about-me-popup");
       const closePopupBtn = document.getElementById("close-popup-btn");
       const blurWrapper = document.getElementById("blurWrapper"); // Select the blur wrapper
+      
+      menuBtn.addEventListener("click", () => {
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  });
 
-      menuBtn.addEventListener("mouseenter", () => {
-        menu.style.display = "block";
-      });
+  menu.addEventListener("mouseleave", () => {
+    menu.style.display = "none";
+  });
 
-      menu.addEventListener("mouseleave", () => {
-        menu.style.display = "none";
-      });
+  aboutMeBtn.addEventListener("click", () => {
+    aboutMePopup.style.display = "block";
+    blurWrapper.style.display = "block"; // Show the blur wrapper
+  });
 
-      aboutMeBtn.addEventListener("click", () => {
-        aboutMePopup.style.display = "block";
-        blurWrapper.style.display = "block"; // Show the blur wrapper
-      });
+  closePopupBtn.addEventListener("click", () => {
+    aboutMePopup.style.display = "none";
+    blurWrapper.style.display = "none"; // Hide the blur wrapper
+  });
+</script>
+<script>
+  const languageBtn = document.getElementById("language-btn");
+  const languageMenu = document.getElementById("language-menu");
 
-      closePopupBtn.addEventListener("click", () => {
-        aboutMePopup.style.display = "none";
-        blurWrapper.style.display = "none"; // Hide the blur wrapper
-      });
-    </script>
+  languageBtn.addEventListener("click", () => {
+    languageMenu.style.display =
+      languageMenu.style.display === "block" ? "none" : "block";
+  });
+
+  const languageOptions = document.querySelectorAll(".language-option");
+  languageOptions.forEach((option) => {
+    option.addEventListener("click", (event) => {
+      event.preventDefault();
+      const selectedLang = option.dataset.lang;
+      // Call your function to fetch and render articles based on the selected language
+      fetchAndRenderArticles(selectedLang);
+      // Hide the language menu after selection
+      languageMenu.style.display = "none";
+    });
+  });
+</script>
+
+   
   </body>
 </html>
+
