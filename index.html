@@ -251,26 +251,40 @@
       <!-- Script to fetch and render articles -->
       <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
       <script>
-        // Function to fetch and render articles
-        async function fetchAndRenderArticles() {
-          const articleList = document.getElementById("article-list");
+ async function fetchAndRenderArticles() {
+  const articleContainer = document.getElementById("blog");
 
-          try {
-            // Fetch Markdown content from your GitHub repository
-            const response = await fetch(
-              "https://raw.githubusercontent.com/your_username/your_repository/main/articles/article1.md"
-            );
-            const markdownContent = await response.text();
+  try {
+    // Array of URLs to Markdown files in your GitHub repository
+    const markdownURLs = [
+      "https://raw.githubusercontent.com/MKB1109/Blog/main/YS.md",
+      // Add more URLs as needed
+    ];
 
-            // Convert Markdown to HTML
-            const htmlContent = marked(markdownContent);
+    // Loop through each URL
+    for (const url of markdownURLs) {
+      // Fetch Markdown content from GitHub
+      const response = await fetch(url);
+      const markdownContent = await response.text();
 
-            // Append HTML content to article list
-            articleList.innerHTML += htmlContent;
-          } catch (error) {
-            console.error("Error fetching and rendering articles:", error);
-          }
-        }
+      // Convert Markdown to HTML
+      const htmlContent = marked(markdownContent);
+
+      // Create a container for the HTML content
+      const articleDiv = document.createElement("div");
+      articleDiv.innerHTML = htmlContent;
+
+      // Append the HTML content to the article container
+      articleContainer.appendChild(articleDiv);
+    }
+  } catch (error) {
+    console.error("Error fetching and rendering articles:", error);
+  }
+}
+
+// Call fetchAndRenderArticles function to display articles
+fetchAndRenderArticles();
+
 
         // Call fetchAndRenderArticles function to display articles
         fetchAndRenderArticles();
