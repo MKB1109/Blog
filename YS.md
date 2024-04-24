@@ -42,7 +42,8 @@ By investigating possible interactions we can investigate this penhomena further
 In the case of the LGBTQ plot there is a turning point at the midway juncture in the interaction plot between gender and attitudes toward LGBTQ indviduals. As the interaction plot illustrates we can see that men and women who are accepting of LGBTQ individuals have starker differences than men and women who are unsupprotive of this community. Therefore we can observe that men who hold pro-LGBTQ views are more left wing than women who hold the same views. Since the slopes in this interaction are parallel we cannot infer that gender has a significant impact on the relationship between LGBTQ acceptance and political alignment. However, there is a noticable trend that as a person becomes more unsupportive of LGBTQ individuals there is a narrower gap between the genders.  
 The interaction term between gender and welcoming attitudes toward immigrants outside of Europe paints a similar picture. Altough this interaction plot is largely defined by parallelism, we can observe a that the gaps also becomes less widened for conservative indllllgtfivdiuals. The tail end of this plot can be interpereted as there being quite a difference between men and women who are welcoming of migrants. It seems that women who share this view are more staunchly left than men who have the same view.
 
-![Interaction1](https://github.com/MKB1109/Blog/blob/81d288398228a4091d91111d3bf9d97b78515758/Bilde8.png)
+<img src="https://github.com/MKB1109/Blog/blob/81d288398228a4091d91111d3bf9d97b78515758/Bilde8.png" alt="Interaction1" width="300" height="200">
+
 ![Interaction2](https://github.com/MKB1109/Blog/blob/81d288398228a4091d91111d3bf9d97b78515758/Bilde9.png)
 
 Reflections
