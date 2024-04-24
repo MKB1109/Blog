@@ -43,7 +43,7 @@
       .article-container {
         width: calc(
           25% - 20px
-        ); /* Each article container takes up 25% of the container width with spacing */
+        ); /* Article container takes up 25% of the container width with spacing */
         padding: 10px; /* Reduce padding */
         background-color: rgba(
           241,
@@ -52,17 +52,17 @@
           0.7
         ); /* Black background with 70% opacity */
         border-radius: 10px;
-        color: #131313; /* White text color */
-        position: relative; /* Add position relative */
-        overflow: hidden; /* Hide overflowing content */
+        color: #131313; /* White text */
+        position: relative; /* Relative position */
+        overflow: hidden; /* Hiding overflowing content */
         transition: transform 0.3s ease; /* Smooth transition */
       }
 
 
       .article-image {
-        width: 150px; /* Set a specific width for the image */
+        width: 150px; /* Width */
         height: auto; /* Maintain aspect ratio */
-        border-radius: 10px; /* Apply border radius */
+        border-radius: 10px; /* Applying border radius */
         margin-bottom: 10px;
       }
 
@@ -70,7 +70,7 @@
       .article-container:hover {
         transform: translateY(
           -5px
-        ); /* Move the container up slightly on hover */
+        ); /* Moveing and hovering */
       }
 
 
@@ -84,7 +84,7 @@
         border-radius: 10px;
         margin-top: 20px;
         display: flex;
-        flex-wrap: wrap; /* Allow articles to wrap into multiple rows */
+        flex-wrap: wrap; /* Wrapping into multiple rows */
         justify-content: space-between; /* Space articles evenly */
         gap: 20px; /* Spacing between articles */
       }
@@ -223,11 +223,11 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
         z-index: 99; /* Ensure it's behind the popup */
-        backdrop-filter: blur(20px); /* Apply the blur effect */
+        backdrop-filter: blur(20px); /* Applying the blur effect */
         display: none; /* Initially hidden */
       }
 
-     /* Add this CSS to your existing styles */
+     /* Adding CSS */
 #language-btn {
   position: absolute;
   top: 20px;
@@ -261,7 +261,7 @@
 }
 
 #language-btn:hover + #language-menu,
-#language-btn:hover ~ #language-menu { /* Changed selector to target any sibling, not just immediately adjacent */
+#language-btn:hover ~ #language-menu { /* Targeting any sibling */
   display: block;
   overflow-y: auto; /* Display scrollbar when hovering over language menu */
 }
