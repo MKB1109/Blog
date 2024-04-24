@@ -1,0 +1,40 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+/* Your existing CSS styles */
+/* Center the article content */
+.article-content {
+    padding: 20px;
+    text-align: center; /* Center align text */
+  }
+  
+.content {
+    position: relative; /* Make sure content appears on top of the background */
+    z-index: 3; /* Ensure content is above the background */
+    padding: 60px; /* Adjust as needed */
+    color: white; /* Example text color */
+    opacity: 1;
+}
+  .filter-boxes {
+    display: flex; /* Use flexbox to make the buttons appear horizontally */
+    justify-content: center; /* Center the buttons horizontally */
+    margin-top: 20px; /* Add some top margin for spacing */
+    height: auto; /* Ensure the container height adjusts based on content */
+    background-color: #ffffff0f; /* Optionally, add a background color for better visibility */
+    padding: 10px; /* Optionally, add padding for better spacing */
+}
+
+#blog{display: flex; 
+flex-direction:column; 
+justify-content: center;
+align-items: center;
+padding: 50px 0px;
+}
+/* Your existing CSS styles */
+
+
+  
