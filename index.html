@@ -5,68 +5,34 @@ layout: default
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="keywords" content="HTML, CSS" />
-  <meta name="description" content="A blog about econometrics, politics, and computer science." />
-  <title>EPC Blog</title>
-  <!-- Link to external stylesheet removed -->
-  <style>
-    /* CSS styles from styles.css */
-    /* Paste your CSS styles here */
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta
+      name="description"
+      content="A blog about econometrics, politics, and computer science."
+    />
+    <title>EPC Blog</title>
+    <link rel="stylesheet" href="https://github.com/MKB1109/Blog/blob/main/styles.css" />
+    <style>
+      /* Styles */
+      img {
+        width: 100px;
+        border-radius: 50px;
+        float: left;
+        margin-right: 10px;
+      }
 
-    /* Other styles */
-    img {
-      width: 100px;
-      border-radius: 50px;
-      float: left;
-      margin-right: 10px;
-    }
 
-    .username {
-      font-weight: bold;
-    }
+      .username {
+        font-weight: bold;
+      }
 
-    /* Rest of your CSS styles */
-    .article-content {
-      padding: 20px;
-      text-align: center;
-    }
-
-    .content {
-      position: relative;
-      z-index: 3;
-      padding: 60px;
-      color: white;
-      opacity: 1;
-    }
-
-    .filter-boxes {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      height: auto;
-      background-color: #ffffff0f;
-      padding: 10px;
-    }
-
-    #blog {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 50px 0px;
-    }
 
      
             body {
-    background-image: url("main/pictureWY.jpeg?");
+    background-image: url("https://github.com/MKB1109/Blog/blob/main/pictureWY.jpeg");
     /* Other background properties */
     background-size: cover;
     background-position: center;
@@ -367,8 +333,7 @@ layout: default
     </div>
     <div class="content">
       <h1>EPC blog</h1>
-       <img src="https://github.com/MKB1109/Blog/blob/main/bildeavdegcv.png?"
-         alt="An image of me" />
+      <img src="https://github.com/MKB1109/Blog/blob/main/bildeavdegcv.png" alt="An image of me" />
       <p class="">Contact: EPCblog@gmail.com</p>
       <p>A blog about econometrics, politics and computer science</p>
     </div>
@@ -462,7 +427,7 @@ fetchAndRenderArticles();
     option.addEventListener("click", (event) => {
       event.preventDefault();
       const selectedLang = option.dataset.lang;
-      // function to fetch and render articles based on the selected language
+      // Call your function to fetch and render articles based on the selected language
       fetchAndRenderArticles(selectedLang);
       // Hide the language menu after selection
       languageMenu.style.display = "none";
