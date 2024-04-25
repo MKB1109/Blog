@@ -1,3 +1,8 @@
+---
+layout: default
+---
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +16,7 @@
     <title>EPC Blog</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
-      /* Your existing styles */
+      /* Styles */
       img {
         width: 100px;
         border-radius: 50px;
@@ -25,18 +30,21 @@
       }
 
 
-      body {
-      background-image: url("https://github.com/MKB1109/Blog/blob/a21b06d74d5d0152f5ec58ab2297c0bdbb18b295/pictureWY.jpeg");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      opacity: 0.8;
-      height: 100vh;
-      position: absolute;
-      width: 100%;
-      z-index: -1;
-    }
+     
+            body {
+    background-image: url("C:/my-blog/_site/assets/pictureWY.jpeg");
+    /* Other background properties */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
 
 
 
@@ -222,9 +230,9 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-        z-index: 99; /* Ensure it's behind the popup */
+        z-index: 99; /* behind the popup */
         backdrop-filter: blur(20px); /* Applying the blur effect */
-        display: none; /* Initially hidden */
+        display: none; /* Hidden */
       }
 
      /* Adding CSS */
@@ -430,4 +438,3 @@ fetchAndRenderArticles();
    
   </body>
 </html>
-
