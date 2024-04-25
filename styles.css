@@ -5,7 +5,7 @@ body, html {
 }
 
 
-/* Your existing CSS styles */
+/* Existing CSS styles */
 /* Center the article content */
 .article-content {
     padding: 20px;
@@ -13,19 +13,19 @@ body, html {
   }
   
 .content {
-    position: relative; /* Make sure content appears on top of the background */
-    z-index: 3; /* Ensure content is above the background */
-    padding: 60px; /* Adjust as needed */
-    color: white; /* Example text color */
+    position: relative; /* Content appears on top of background */
+    z-index: 3; 
+    padding: 60px; 
+    color: white; 
     opacity: 1;
 }
   .filter-boxes {
-    display: flex; /* Use flexbox to make the buttons appear horizontally */
-    justify-content: center; /* Center the buttons horizontally */
-    margin-top: 20px; /* Add some top margin for spacing */
-    height: auto; /* Ensure the container height adjusts based on content */
-    background-color: #ffffff0f; /* Optionally, add a background color for better visibility */
-    padding: 10px; /* Optionally, add padding for better spacing */
+    display: flex; /* flexbox to make the buttons appear horizontally */
+    justify-content: center; /* Center buttons horizontally */
+    margin-top: 20px; /* top margin for spacing */
+    height: auto; 
+    background-color: #ffffff0f; 
+    padding: 10px; 
 }
 
 #blog{display: flex; 
@@ -34,7 +34,7 @@ justify-content: center;
 align-items: center;
 padding: 50px 0px;
 }
-/* Your existing CSS styles */
+/* Existing CSS styles */
 
 
   
