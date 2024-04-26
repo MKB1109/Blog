@@ -1,258 +1,296 @@
+
+---
+layout: default
+---
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="keywords" content="HTML, CSS" />
-  <meta name="description" content="A blog about econometrics, politics, and computer science." />
-  <title>EPC Blog</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta
+      name="description"
+      content="A blog about econometrics, politics, and computer science."
+    />
+    <title>EPC Blog</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Styles */
+      img {
+        width: 100px;
+        border-radius: 50px;
+        float: left;
+        margin-right: 10px;
+      }
 
-    /* Existing CSS styles */
-    /* Center the article content */
-    .article-content {
-      padding: 20px;
-      text-align: center; /* Center align text */
-    }
 
-    .content {
-      position: relative; /* Content appears on top of background */
-      z-index: 3; 
-      padding: 60px; 
-      color: white; 
-      opacity: 1;
-    }
+      .username {
+        font-weight: bold;
+      }
 
-    .filter-boxes {
-      display: flex; /* flexbox to make the buttons appear horizontally */
-      justify-content: center; /* Center buttons horizontally */
-      margin-top: 20px; /* top margin for spacing */
-      height: auto; 
-      background-color: #ffffff0f; 
-      padding: 10px; 
-    }
 
-    #blog {
-      display: flex; 
-      flex-direction: column; 
-      justify-content: center;
-      align-items: center;
-      padding: 50px 0px;
-    }
+     
+  body {
+  background-image: url("pictureWY.jpeg");
+  /* Other background properties */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
 
-    body {
-      background-image: url("https://github.com/MKB1109/Blog/blob/main/pictureWY.jpeg");
-      /* Other background properties */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      opacity: 0.8;
-      height: 100vh;
-      position: absolute;
-      width: 100%;
-      z-index: -1;
-    }
 
-    .article-container {
-      width: calc(25% - 20px); /* Article container takes up 25% of the container width with spacing */
-      padding: 10px; /* Reduce padding */
-      background-color: rgba(241, 236, 236, 0.7); /* Black background with 70% opacity */
-      border-radius: 10px;
-      color: #131313; /* White text */
-      position: relative; /* Relative position */
-      overflow: hidden; /* Hiding overflowing content */
-      transition: transform 0.3s ease; /* Smooth transition */
-    }
 
-    .article-image {
-      width: 150px; /* Width */
-      height: auto; /* Maintain aspect ratio */
-      border-radius: 10px; /* Applying border radius */
-      margin-bottom: 10px;
-    }
 
-    .article-container:hover {
-      transform: translateY(-5px); /* Moving and hovering */
-    }
 
-    .article-content {
-      padding: 20px;
-    }
+      .article-container {
+        width: calc(
+          25% - 20px
+        ); /* Article container takes up 25% of the container width with spacing */
+        padding: 10px; /* Reduce padding */
+        background-color: rgba(
+          241,
+          236,
+          236,
+          0.7
+        ); /* Black background with 70% opacity */
+        border-radius: 10px;
+        color: #131313; /* White text */
+        position: relative; /* Relative position */
+        overflow: hidden; /* Hiding overflowing content */
+        transition: transform 0.3s ease; /* Smooth transition */
+      }
 
-    #blog {
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap; /* Wrapping into multiple rows */
-      justify-content: space-between; /* Space articles evenly */
-      gap: 20px; /* Spacing between articles */
-    }
 
-    .blog-box-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px; /* Spacing between blog boxes */
-    }
+      .article-image {
+        width: 150px; /* Width */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 10px; /* Applying border radius */
+        margin-bottom: 10px;
+      }
 
-    .blog-box {
-      width: calc(25% - 20px); /* Each blog box takes up 25% of the container width with spacing */
-      padding: 20px;
-      background-color: rgba(241, 236, 236, 0.7); /* Black background with 70% opacity */
-      border-radius: 10px;
-      color: #131313; /* White text color */
-    }
 
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 12px; /* Width of the scrollbar */
-    }
+      .article-container:hover {
+        transform: translateY(
+          -5px
+        ); /* Moveing and hovering */
+      }
 
-    ::-webkit-scrollbar-track {
-      background: transparent; /* Transparent track */
-    }
 
-    ::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.2); /* Semi-transparent thumb */
-      border-radius: 6px; /* Rounded corners */
-      border: 2px solid transparent; /* Transparent border */
-    }
+      .article-content {
+        padding: 20px;
+      }
 
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(0, 0, 0, 0.4); /* Darker thumb color on hover */
-    }
 
-    .blog-box h2 {
-      margin-top: 0;
-    }
+      #blog {
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap; /* Wrapping into multiple rows */
+        justify-content: space-between; /* Space articles evenly */
+        gap: 20px; /* Spacing between articles */
+      }
 
-    #menu-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 10;
-      cursor: pointer;
-      font-size: 24px; /* Increase font size */
-      padding: 10px 20px; /* Increase padding */
-      border-radius: 5px; /* Add border radius */
-      background-color: transparent; /* Transparent background */
-      color: #fff; /* White text color */
-      border: none; /* Remove border */
-      transition: background-color 0.3s; /* Smooth transition */
-    }
 
-    #menu-btn:hover {
-      background-color: rgba(255, 255, 255, 0.2); /* White transparent background on hover */
-    }
+      .blog-box-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Spacing between blog boxes */
+      }
 
-    .menu {
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      z-index: 10;
-      display: none;
-      background-color: rgba(255, 255, 255, 0.9); /* White transparent background */
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
 
-    .menu a {
-      display: block;
-      padding: 8px 16px;
-      text-decoration: none;
-      color: #333;
-    }
+      .blog-box {
+        width: calc(
+          25% - 20px
+        ); /* Each blog box takes up 25% of the container width with spacing */
+        padding: 20px;
+        background-color: rgba(
+          241,
+          236,
+          236,
+          0.7
+        ); /* Black background with 70% opacity */
+        border-radius: 10px;
+        color: #131313; /* White text color */
+      }
 
-    .menu a:hover {
-      background-color: #f0f0f0;
-    }
 
-    .popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      border-radius: 10px;
-      z-index: 101; /* Adjusted z-index */
-      display: none;
-      /* Center the popup */
-      width: 80%; /* Adjust as needed */
-      max-width: 500px; /* Adjust as needed */
-      text-align: center;
-    }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
+      }
 
-    .blur-wrapper {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-      z-index: 99; /* behind the popup */
-      backdrop-filter: blur(20px); /* Applying the blur effect */
-      display: none; /* Hidden */
-    }
 
-    /* Adding CSS */
-    #language-btn {
-      position: absolute;
-      top: 20px;
-      right: 100px; /* Adjust as needed */
-      z-index: 10;
-      cursor: pointer;
-      font-size: 18px; /* Adjust as needed */
-      padding: 20px 20px; /* Increase padding */
-      border-radius: 5px; /* Add border radius */
-      background-color: transparent; /* Transparent background */
-      color: #fff; /* White text color */
-      border: none; /* Remove border */
-      transition: background-color 0.3s; /* Smooth transition */
-    }
+      ::-webkit-scrollbar-track {
+        background: transparent; /* Transparent track */
+      }
 
-    #language-btn:hover {
-      background-color: rgba(255, 255, 255, 0.2); /* White transparent background on hover */
-    }
 
-    #language-menu {
-      position: absolute;
-      top: 60px;
-      right: 100px; /* Adjust as needed */
-      z-index: 10;
-      display: none;
-      background-color: rgba(255, 255, 255, 0.9); /* White transparent background */
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      overflow: hidden; /* Hide scrollbar by default */
-    }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2); /* Semi-transparent thumb */
+        border-radius: 6px; /* Rounded corners */
+        border: 2px solid transparent; /* Transparent border */
+      }
 
-    #language-btn:hover + #language-menu,
-    #language-btn:hover ~ #language-menu { /* Targeting any sibling */
-      display: block;
-      overflow-y: auto; /* Display scrollbar when hovering over language menu */
-    }
 
-    .language-option {
-      display: block;
-      padding: 8px 16px;
-      text-decoration: none;
-      color: #333;
-    }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.4); /* Darker thumb color on hover */
+      }
 
-    .language-option:hover {
-      background-color: #f0f0f0;
-    }
-  </style>
 
+      .blog-box h2 {
+        margin-top: 0;
+      }
+
+
+      #menu-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 10;
+        cursor: pointer;
+        font-size: 24px; /* Increase font size */
+        padding: 10px 20px; /* Increase padding */
+        border-radius: 5px; /* Add border radius */
+        background-color: transparent; /* Transparent background */
+        color: #fff; /* White text color */
+        border: none; /* Remove border */
+        transition: background-color 0.3s; /* Smooth transition */
+      }
+
+
+      #menu-btn:hover {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.2
+        ); /* White transparent background on hover */
+      }
+
+
+      .menu {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        z-index: 10;
+        display: none;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* White transparent background */
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+
+      .menu a {
+        display: block;
+        padding: 8px 16px;
+        text-decoration: none;
+        color: #333;
+      }
+
+
+      .menu a:hover {
+        background-color: #f0f0f0;
+      }
+
+
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 101; /* Adjusted z-index */
+        display: none;
+        /* Center the popup */
+        width: 80%; /* Adjust as needed */
+        max-width: 500px; /* Adjust as needed */
+        text-align: center;
+      }
+
+
+      .blur-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        z-index: 99; /* behind the popup */
+        backdrop-filter: blur(20px); /* Applying the blur effect */
+        display: none; /* Hidden */
+      }
+
+     /* Adding CSS */
+#language-btn {
+  position: absolute;
+  top: 20px;
+  right: 100px; /* Adjust as needed */
+  z-index: 10;
+  cursor: pointer;
+  font-size: 18px; /* Adjust as needed */
+  padding: 20px 20px; /* Increase padding */
+  border-radius: 5px; /* Add border radius */
+  background-color: transparent; /* Transparent background */
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+#language-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* White transparent background on hover */
+}
+
+#language-menu {
+  position: absolute;
+  top: 60px;
+  right: 100px; /* Adjust as needed */
+  z-index: 10;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.9); /* White transparent background */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Hide scrollbar by default */
+}
+
+#language-btn:hover + #language-menu,
+#language-btn:hover ~ #language-menu { /* Targeting any sibling */
+  display: block;
+  overflow-y: auto; /* Display scrollbar when hovering over language menu */
+}
+
+.language-option {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+}
+
+.language-option:hover {
+  background-color: #f0f0f0;
+}
+
+
+
+    </style>
+  </head>
 
   <body>
     <div><button id="language-btn" class="language-menu-btn">Language
@@ -398,6 +436,11 @@ fetchAndRenderArticles();
     });
   });
 </script>
+
+   
+  </body>
+</html>
+
 
    
   </body>
