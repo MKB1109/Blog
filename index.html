@@ -340,13 +340,17 @@
 </div>
       </div>
 
-      <!-- Loop through related posts and render their titles and excerpts -->
-{% for post in site.related_posts %}
+<!-- Loop through each article in the _posts directory -->
+{% for post in site.posts %}
   <div class="article">
     <h2>{{ post.title }}</h2>
-    <p>{{ post.excerpt }}</p>
+    <p>{{ post.date | date: "%Y-%m-%d" }}</p>
+    <!-- Render the Markdown content -->
+    {{ post.content }}
   </div>
 {% endfor %}
+
+
 
 
      
