@@ -334,12 +334,11 @@
     <p>A blog about econometrics, politics, and computer science</p>
 </div>
 
-
 <section id="blog">
   <!-- Loop through each article in the _posts directory -->
   {% for post in site.posts %}
     <div class="article">
-      <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
       <p>{{ post.date | date: "%Y-%m-%d" }}</p>
       <!-- Render the Markdown content -->
       {{ post.content }}
