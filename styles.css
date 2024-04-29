@@ -1,0 +1,40 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+/* Existing CSS styles */
+/* Center the article content */
+.article-content {
+    padding: 20px;
+    text-align: center; /* Center align text */
+  }
+  
+.content {
+    position: relative; /* Content appears on top of background */
+    z-index: 3; 
+    padding: 60px; 
+    color: white; 
+    opacity: 1;
+}
+  .filter-boxes {
+    display: flex; /* flexbox to make the buttons appear horizontally */
+    justify-content: center; /* Center buttons horizontally */
+    margin-top: 20px; /* top margin for spacing */
+    height: auto; 
+    background-color: #ffffff0f; 
+    padding: 10px; 
+}
+
+#blog{display: flex; 
+flex-direction:column; 
+justify-content: center;
+align-items: center;
+padding: 50px 0px;
+}
+/* Existing CSS styles */
+
+
+  
