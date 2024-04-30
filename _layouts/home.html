@@ -295,7 +295,7 @@
   <!-- Loop through each article in the _posts directory -->
   {% for post in site.posts %}
   <div class="article article-container" data-tags="{{ post.tags }}">
-    <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+    <h2><a href="{{ site.baseurl }}/{{ post.url }}">{{ post.title }}</a></h2>
     <p>{{ post.date | date: "%Y-%m-%d" }}</p>
     <!-- Render the Markdown content / excerpt -->
     <!-- {{ post.content }} -->
