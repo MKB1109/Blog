@@ -291,17 +291,17 @@
       <p>A blog about econometrics, politics, and computer science</p>
     </div>
 
-    <section id="blog">
-      <!-- Loop through each article in the _posts directory -->
-      {% for post in site.posts %}
-      <div class="article article-container" data-tags="{{ post.tags }}">
-        <h2><a href="<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-        <p>{{ post.date | date: "%Y-%m-%d" }}</p>
-        <!-- Render the Markdown content / excerpt -->
-        <!-- {{ post.content }} -->
-        <!-- {{ post.excerpt }} -->
-      </div>
-      {% endfor %}
-    </section>
+<section id="blog">
+  <!-- Loop through each article in the _posts directory -->
+  {% for post in site.posts %}
+  <div class="article article-container" data-tags="{{ post.tags }}">
+    <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+    <p>{{ post.date | date: "%Y-%m-%d" }}</p>
+    <!-- Render the Markdown content / excerpt -->
+    <!-- {{ post.content }} -->
+    <!-- {{ post.excerpt }} -->
+  </div>
+  {% endfor %}
+</section>
   </body>
 </html>
