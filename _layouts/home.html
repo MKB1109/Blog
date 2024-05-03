@@ -189,69 +189,6 @@
         display: none; /* Hidden */
       }
 
-      /* Adding CSS */
-      #language-btn {
-        position: absolute;
-        top: 20px;
-        right: 100px; /* Adjust as needed */
-        z-index: 10;
-        cursor: pointer;
-        font-size: 18px; /* Adjust as needed */
-        padding: 20px 20px; /* Increase padding */
-        border-radius: 5px; /* Add border radius */
-        background-color: transparent; /* Transparent background */
-        color: #fff; /* White text color */
-        border: none; /* Remove border */
-        transition: background-color 0.3s; /* Smooth transition */
-      }
-
-      #language-btn:hover {
-        background-color: rgba(255, 255, 255, 0.2 ); /* White transparent background on hover */
-      }
-
-      #language-menu {
-        position: absolute;
-        top: 60px;
-        right: 100px; /* Adjust as needed */
-        z-index: 10;
-        display: none;
-        background-color: rgba(255, 255, 255, 0.9 ); /* White transparent background */
-        padding: 10px;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden; /* Hide scrollbar by default */
-      }
-
-      #language-btn:hover + #language-menu,
-      #language-btn:hover ~ #language-menu {
-        /* Targeting any sibling */
-        display: block;
-        overflow-y: auto; /* Display scrollbar when hovering over language menu */
-      }
-
-      .language-option {
-        display: block;
-        padding: 8px 16px;
-        text-decoration: none;
-        color: #333;
-      }
-
-      .language-option:hover {
-        background-color: #f0f0f0;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div>
-      <button id="language-btn" class="language-menu-btn">
-        Language
-        <a href="#" class="language-option" data-lang="en">EN</a>
-        <a href="#" class="language-option" data-lang="fr">FR</a>
-        <a href="#" class="language-option" data-lang="es">ES</a>
-      </button>
-    </div>
-
     <div id="menu-btn">☰</div>
     <div class="menu">
       <a href="#" onclick="filterArticles('Econometrics')">Econometrics</a>
