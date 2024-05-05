@@ -16,7 +16,7 @@ body, html {
     position: relative; /* Content appears on top of background */
     z-index: 3; 
     padding: 60px; 
-    color: white; 
+    color: black; 
     opacity: 1;
 }
   .filter-boxes {
