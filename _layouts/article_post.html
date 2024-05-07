@@ -7,6 +7,15 @@
 </head>
 <body>
 
+  <header>
+    {% assign current_lang = page.lang %}
+    {% assign other_lang = current_lang == 'en' ? 'fr' : 'en' %}
+    {% assign current_url = page.url %}
+    {% assign other_url = current_url | replace: "/#{current_lang}/", "/#{other_lang}/" %}
+    
+    <a href="{{ other_url }}">{{ other_lang | capitalize }}</a>
+  </header>
+
   <h1>{{ page.title }}</h1>
   <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
 
