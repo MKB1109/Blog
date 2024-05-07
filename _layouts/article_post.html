@@ -8,12 +8,12 @@
 <body>
 
   <header>
-    {% assign current_lang = page.url | split: '/' | last %}
-    {% assign other_lang = current_lang == 'en' ? 'fr' : 'en' %}
+    {% assign current_lang = page.url | split: '.' | last | upcase %}
+    {% assign other_lang = current_lang == 'EN' ? 'FR' : 'EN' %}
     {% assign current_url = page.url %}
-    {% assign other_url = current_url | replace: "/Blog/{{ current_lang }}/", "/Blog/{{ other_lang }}/" %}
+    {% assign other_url = current_url | replace: ".#{current_lang}.md", ".#{other_lang}.md" %}
     
-    <a href="{{ other_url }}">{{ other_lang | capitalize }}</a>
+    <a href="{{ other_url }}">{{ other_lang }}</a>
   </header>
 
   <h1>{{ page.title }}</h1>
