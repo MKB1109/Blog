@@ -7,14 +7,14 @@
 </head>
 <body>
 
-  <header>
-    {% assign current_lang = page.url | split: '.' | last %}
-    {% assign other_lang = current_lang == 'en' ? 'fr' : 'en' %}
-    {% assign current_url = page.url %}
-    {% assign other_url = current_url | replace: "/{{ current_lang }}/", "/{{ other_lang }}/" %}
-    
-    <a href="{{ other_url }}">{{ other_lang | capitalize }}</a>
-  </header>
+<ul class="language-switcher">
+  {% if page.lang == 'en' %}
+    <li><a href="{{ page.url | replace: '/en/', '/fr/' }}">🇫🇷 {{ site.data.i18n.fr.read_it_in }}</a></li>
+  {% else %}
+    <li><a href="{{ page.url | replace: '/fr/', '/en/' }}">🇬🇧 {{ site.data.i18n.in.read_it_in }}</a></li>
+  {% endif %}
+</ul>
+
 
   <h1>{{ page.title }}</h1>
   <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
