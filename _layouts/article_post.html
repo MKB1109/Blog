@@ -8,7 +8,7 @@
 <body>
 
   <header>
-    {% assign current_lang = page.lang %}
+    {% assign current_lang = page.url | split: '/' | last %}
     {% assign other_lang = current_lang == 'en' ? 'fr' : 'en' %}
     {% assign current_url = page.url %}
     {% assign other_url = current_url | replace: "/#{current_lang}/", "/#{other_lang}/" %}
