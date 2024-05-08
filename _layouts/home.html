@@ -246,11 +246,12 @@
   {% endif %}
   {% endfor %}
 </section>
-  {% if page.lang %}
+<section>
+  {% if page.lang and page.layout == "article_post" %}
     <!-- Add language switcher button -->
     <button id="lang-switcher">Switch Language</button>
   {% endif %}
-
+</section>
 <script src="script.js"></script>
   </body>
 </html>
