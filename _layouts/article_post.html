@@ -6,16 +6,16 @@
   <title>{{ page.title }}</title>
 </head>
 <body>
-  {% if page.layout == "article_post" %}
+{% if page.layout == "article_post" %}
   <!-- Add language switcher here -->
-  {% for lang in site.languages %}
-    {% if lang == site.default_lang %}
-      <a href="{{ page.url }}">{{ lang }}</a>
-    {% else %}
-      <a href="/{{ lang }}{{ page.url }}">{{ lang }}</a>
-    {% endif %}
-  {% endfor %}
+  {% assign current_lang = page.lang %}
+  {% assign other_lang = current_lang == 'en' ? 'fr' : 'en' %}
+  {% assign current_url = page.url %}
+  {% assign other_url = current_url | replace: "/#{current_lang}/", "/#{other_lang}/" %}
+  
+  <a href="{{ other_url }}">{{ other_lang | capitalize }}</a>
 {% endif %}
+
 
   <h1>{{ page.title }}</h1>
   <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
