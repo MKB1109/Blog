@@ -252,31 +252,6 @@
     <button id="lang-switcher">Switch Language</button>
   {% endif %}
 
-  document.addEventListener("DOMContentLoaded", function() {
-  // Get the language switcher button
-  var langSwitcher = document.getElementById("lang-switcher");
-  
-  // Add click event listener
-  langSwitcher.addEventListener("click", function() {
-    // Get the current URL
-    var currentUrl = window.location.href;
-    
-    // Check if the URL contains "/EN.md/" or "/FR.md/"
-    if (currentUrl.includes("/EN.md/")) {
-      // Replace "/EN.md/" with "/FR.md/" to switch to French
-      var otherUrl = currentUrl.replace("/EN.md/", "/FR.md/");
-    } else if (currentUrl.includes("/FR.md/")) {
-      // Replace "/FR.md/" with "/EN.md/" to switch to English
-      var otherUrl = currentUrl.replace("/FR.md/", "/EN.md/");
-    } else {
-      // Default to English if the language is not detected
-      var otherUrl = currentUrl + "/EN.md/";
-    }
-    
-    // Redirect to the other language page
-    window.location.href = otherUrl;
-  });
-});
-
+<script src="language_switcher.js"></script>
   </body>
 </html>
