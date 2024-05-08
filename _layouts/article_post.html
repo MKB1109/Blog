@@ -1,35 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-</head>
-<body>
-{% if page.layout == "article_post" %}
-  <!-- Add language switcher here -->
-  {% assign current_lang = page.lang %}
-  {% assign other_lang = current_lang == 'en' ? 'fr' : 'en' %}
-  {% assign current_url_parts = page.url | split: '/' %}
-  {% assign file_name_parts = current_url_parts.last | split: '-' %}
-  {% assign current_file_lang = file_name_parts.last | split: '.' | first %}
-  {% if current_lang != current_file_lang %}
-    {% assign current_url_parts_size = current_url_parts | size %}
-    {% assign file_name_parts_size = file_name_parts | size %}
-    {% assign current_url_parts = current_url_parts | slice: 0, current_url_parts_size | join: '/' %}
-    {% assign file_name_parts = file_name_parts | slice: 0, file_name_parts_size | join: '-' %}
-  {% endif %}
-  {% assign other_url = current_url_parts | append: '/' | append: file_name_parts | append: '-' | append: other_lang | append: '/' %}
-  
-  <a href="{{ other_url }}">{{ other_lang | capitalize }}</a>
-{% endif %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    {% if page.lang %}
+    <div class="language-switcher">
+      {% assign current_lang = page.lang %} {% assign other_langs =
+      site.languages | where: "lang", current_lang | first %} {% for lang in
+      site.languages %} {% unless lang.lang == current_lang %} {% assign
+      other_lang = lang.lang %} {% assign other_url = page.url | replace:
+      "/#{current_lang}/", "/#{other_lang}/" %}
+      <a href="{{ other_url }}">{{ other_lang | upcase }}</a>
+      {% endunless %} {% endfor %}
+    </div>
+    {% endif %}
 
+    <h1>{{ page.title }}</h1>
+    <p class="meta">
+      Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}
+    </p>
 
-
-  <h1>{{ page.title }}</h1>
-  <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
-
-  {{ content }}
-
-</body>
+    {{ content }}
+  </body>
 </html>
