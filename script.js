@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-  document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
   // Get the language switcher button
   var langSwitcher = document.getElementById("lang-switcher");
   
@@ -60,11 +60,12 @@ document.addEventListener("DOMContentLoaded", function () {
       // Replace "/FR.md/" with "/EN.md/" to switch to English
       var otherUrl = currentUrl.replace("/FR.md/", "/EN.md/");
     } else {
-      // Default to English if the language is not detected
-      var otherUrl = currentUrl + "/EN.md/";
+      // Default to switching to the French version if the language is not detected
+      var otherUrl = currentUrl.replace(".md", "-FR.md");
     }
     
     // Redirect to the other language page
     window.location.href = otherUrl;
   });
 });
+
