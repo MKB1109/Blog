@@ -6,16 +6,27 @@
   <title>{{ page.title }}</title>
 </head>
 <body>
-{% assign article = site.data.articles | where: "id", page.id | first %}
-{% for lang in site.languages %}
-  {% unless lang.lang == page.lang %}
-    {% assign other_title = article["title_" + lang.lang] %}
-    {% if other_title %}
-      {% assign other_url = page.url | replace: "/#{page.lang}/", "/#{lang.lang}/" %}
-      <a href="{{ other_url }}">{{ other_title }}</a>
-    {% endif %}
-  {% endunless %}
-{% endfor %}
+{% assign article_id = page.path | split: '/' | last | split: '.' | first %}
+{% assign article = site.data.articles.articles | where: "id", article_id | first %}
+
+<h1>{{ article["title_" + page.lang] }}</h1>
+
+<div class="content">
+  {{ content }}
+</div>
+
+<div class="language-switcher">
+  {% for lang in site.languages %}
+    {% unless lang.lang == page.lang %}
+      {% assign other_title = article["title_" + lang.lang] %}
+      {% if other_title %}
+        {% assign other_url = page.url | replace: "/#{page.lang}/", "/#{lang.lang}/" %}
+        <a href="{{ other_url }}">{{ lang.lang | upcase }}</a>
+      {% endif %}
+    {% endunless %}
+  {% endfor %}
+</div>
+
 
 
 
