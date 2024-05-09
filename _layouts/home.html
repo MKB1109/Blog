@@ -231,21 +231,28 @@
       <p>A blog about econometrics, politics, and computer science</p>
     </div>
 
-    <section id="blog">
-      <!-- Loop through each article in the _posts/EN directory -->
-      {% for post in site.posts %}
-        {% if post.lang == 'en' %}
-          <div class="article article-container" data-tags="{{ post.tags }}">
-            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-            <p>{{ post.date | date: "%Y-%m-%d" }}</p>
-            <!-- Render the Markdown content / excerpt -->
-            <!-- {{ post.content }} -->
-            <!-- {{ post.excerpt }} -->
-            <p>{{ post.summary }}</p>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </section>
+<section id="blog">
+  <!-- Loop through each article in the _posts directory -->
+  {% for post in site.posts %}
+      {% if post.lang == 'en' %}
+         <div class="article article-container" data-tags="{{ post.tags }}">
+         <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+         <p>{{ post.date | date: "%Y-%m-%d" }}</p>
+         <!-- Render the Markdown content / excerpt -->
+         <!-- {{ post.content }} -->
+         <!-- {{ post.excerpt }} -->
+         <p>{{ post.summary }}</p>
+     </div>
+  {% endif %}
+  {% endfor %}
+</section>
+  {% for lang in site.languages %}
+  {% if lang == site.default_lang %}
+    <a href="{{ page.url }}">{{ lang }}</a>
+  {% else %}
+    <a href="/{{ lang }}{{ page.url }}">{{ lang }}</a>
+  {% endif %}
+{% endfor %}
 
   </body>
 </html>
