@@ -11,7 +11,18 @@
     <button onclick="switchLanguage('fr')">Français</button>
     <!-- Add buttons for other languages as needed -->
 </div>
-
+ function switchLanguage(lang) {
+    // Fetch data for the selected language
+    fetch(`/path/to/${lang}.yml`)
+        .then(response => response.json())
+        .then(data => {
+            // Update content on the page based on the selected language
+            document.getElementById('title').textContent = data.title;
+            document.getElementById('description').textContent = data.description;
+            // Update other content as needed
+        })
+        .catch(error => console.error('Error fetching language data:', error));
+}
 
 
 
