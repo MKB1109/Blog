@@ -6,6 +6,16 @@
   <title>{{ page.title }}</title>
 </head>
 <body>
+{% assign article = site.data.articles | where: "id", page.id | first %}
+{% for lang in site.languages %}
+  {% unless lang.lang == page.lang %}
+    {% assign other_title = article["title_" + lang.lang] %}
+    {% if other_title %}
+      {% assign other_url = page.url | replace: "/#{page.lang}/", "/#{lang.lang}/" %}
+      <a href="{{ other_url }}">{{ other_title }}</a>
+    {% endif %}
+  {% endunless %}
+{% endfor %}
 
 
 
