@@ -6,25 +6,7 @@
   <title>{{ page.title }}</title>
 </head>
 <body>
-{% if page.lang %}
-  <div class="language-switcher">
-    {% assign current_lang = page.lang %}
-    {% assign other_langs = site.languages | where: "lang", current_lang | first %}
-    {% for lang in site.languages %}
-      {% unless lang.lang == current_lang %}
-        {% assign other_lang = lang.lang %}
-        {% assign other_url = page.url | replace: "/#{current_lang}/", "/#{other_lang}/" %}
-        <a href="{{ other_url }}">{{ other_lang | upcase }}</a>
-      {% endunless %}
-    {% endfor %}
-  </div>
-{% endif %}
-{% if page.layout == "article_post" %}
-  <h1>{{ page.title }}</h1>
-  <p class="meta">
-    Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}
-  </p>
-{% endif %}
+
 
 
 
