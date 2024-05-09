@@ -60,7 +60,9 @@ markdown: kramdown
 
 plugins:
   - jekyll-polyglot
-  languages: ["en", "es", "fr", "no"]
+
+
+languages: ["en", "es", "fr", "no"]
 default_lang: "en"
 exclude_from_localization: ["assets/css", "assets/img"]
 parallel_localization: true
