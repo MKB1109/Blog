@@ -7,11 +7,12 @@
 </head>
 <body>
 
+  
 {% if site.languages.size > 1 %}
   <div id="language-switcher">
     {% for lang in site.languages %}
       {% unless lang == page.lang %}
-        {% assign translated_article = site.data.articles | select: a => a.id == page.id %}
+        {% assign translated_article = site.data.articles | where: "id", page.id %}
         {% assign article_url = translated_article[0][lang | append: "_url"] %}
         {% if article_url %}
           <a href="{{ article_url }}">{{ lang | upcase }}</a>
@@ -20,6 +21,7 @@
     {% endfor %}
   </div>
 {% endif %}
+
 
 
 
