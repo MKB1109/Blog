@@ -8,18 +8,21 @@
 <body>
 
 
-{% assign current_url_parts = page.url | split: '/' %}
-{% assign lang_index = current_url_parts | index: page.lang | plus: 1 %}
-{% assign current_lang = current_url_parts[lang_index] %}
-{% assign other_lang = page.lang == 'EN' ? 'FR' : 'EN' %}
-{% assign other_url_parts = current_url_parts | clone %}
-{% assign other_url_parts[lang_index] = other_lang %}
-{% assign other_url = other_url_parts | join: '/' %}
+{% assign article_id = page.id %}
+{% assign article = site.data.articles.articles | where: "id", article_id | first %}
 
 <div id="language-switcher">
-  <a href="{{ other_url }}">{{ other_lang }}</a>
-  <!-- Add links for other languages as needed -->
+  {% for lang in site.languages %}
+    {% unless lang.lang == page.lang %}
+      {% assign other_title = article["title_" | append: lang.lang] %}
+      {% if other_title %}
+        {% assign other_url = "/Blog/blog/" | append: page.url | replace: "/#{page.lang}/", "/#{lang.lang}/" %}
+        <a href="{{ other_url }}">{{ lang.lang | upcase }}</a>
+      {% endif %}
+    {% endunless %}
+  {% endfor %}
 </div>
+
 
 
 
