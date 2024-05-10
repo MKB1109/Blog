@@ -9,19 +9,14 @@
 
 
 {% for lang in site.languages %}
-  {% if lang == site.active_lang %}
-    {{ lang }} (Active)
-  {% else %}
-    {% assign article_id = page.id | split: "-" | last %}
-    {% assign article = site.data.articles.articles | where: "id", article_id | first %}
-    {% assign translated_title = article["title_" | append: lang] %}
-    {% if translated_title %}
-      <a href="/{{ lang }}/blog/{{ page.date | date: "%Y/%m/%d" }}/{{ article_id }}-{{ lang | upcase }}/">{{ translated_title }}</a>
-    {% else %}
-      Translation not available for {{ lang | upcase }}
-    {% endif %}
+  {% if lang != page.lang %}
+    {% assign article_id = page.url | split: '/' | last | split: '-' | first %}
+    {% assign article_url = page.url | replace: "/#{page.lang}/", "/#{lang}/" %}
+    {% assign lang_code = lang | upcase %}
+    <a href="{{ article_url }}">{{ lang_code }}</a>
   {% endif %}
 {% endfor %}
+
 
 
 
