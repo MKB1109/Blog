@@ -12,7 +12,10 @@
   {% if lang == site.active_lang %}
     {{ lang }} (Active)
   {% else %}
-    <a href="/{{ lang }}{{ page.url }}">{{ lang }}</a>
+    {% assign article_id = page.id | split: "-" | last %}
+    {% assign article_title = site.articles | where: "id", article_id | first %}
+    {% assign translated_title = article_title["title_" | append: lang] %}
+    <a href="/{{ lang }}/blog/{{ page.date | date: "%Y/%m/%d" }}/{{ article_id }}-{{ lang | upcase }}/">{{ translated_title }}</a>
   {% endif %}
 {% endfor %}
 
