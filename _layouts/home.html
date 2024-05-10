@@ -246,5 +246,22 @@
   {% endif %}
   {% endfor %}
 </section>
+
+
+{% if page.lang %}
+  {% assign article_id = page.id %}
+  {% assign article = site.data.articles.articles | where: "id", article_id | first %}
+
+  {% if article %}
+    <div id="language-switcher">
+      {% for lang in site.languages %}
+        {% if article["url_" | append: lang] %}
+          <a href="{{ article["url_" | append: lang] }}">{{ lang | upcase }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endif %}
+
   </body>
 </html>
