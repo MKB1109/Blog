@@ -13,9 +13,13 @@
     {{ lang }} (Active)
   {% else %}
     {% assign article_id = page.id | split: "-" | last %}
-    {% assign article_title = site.articles | where: "id", article_id | first %}
-    {% assign translated_title = article_title["title_" | append: lang] %}
-    <a href="/{{ lang }}/blog/{{ page.date | date: "%Y/%m/%d" }}/{{ article_id }}-{{ lang | upcase }}/">{{ translated_title }}</a>
+    {% assign article = site.data.articles.articles | where: "id", article_id | first %}
+    {% assign translated_title = article["title_" | append: lang] %}
+    {% if translated_title %}
+      <a href="/{{ lang }}/blog/{{ page.date | date: "%Y/%m/%d" }}/{{ article_id }}-{{ lang | upcase }}/">{{ translated_title }}</a>
+    {% else %}
+      Translation not available for {{ lang | upcase }}
+    {% endif %}
   {% endif %}
 {% endfor %}
 
