@@ -11,16 +11,14 @@
 {% if site.languages.size > 1 %}
   <div id="language-switcher">
     {% for lang in site.languages %}
-      {% unless lang.lang == page.lang %}
-        {% assign url_key = "url_" | append: lang.lang %}
-        {% assign article_url = article[url_key] %}
-        {% if article_url %}
-          <a href="{{ article_url }}">{{ lang.lang | upcase }}</a>
-        {% endif %}
+      {% unless lang == page.lang %}
+        {% assign article_url = page.url | replace: "/#{page.lang}/", "/#{lang}/" %}
+        <a href="{{ article_url }}">{{ lang | upcase }}</a>
       {% endunless %}
     {% endfor %}
   </div>
 {% endif %}
+
 
 
 
