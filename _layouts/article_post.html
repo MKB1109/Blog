@@ -8,20 +8,20 @@
 <body>
 
 
-{% assign article_id = page.id %}
-{% assign article = site.data.articles.articles | where: "id", article_id | first %}
+{% if site.languages.size > 1 %}
+  <div id="language-switcher">
+    {% for lang in site.languages %}
+      {% unless lang.lang == page.lang %}
+        {% assign url_key = "url_" | append: lang.lang %}
+        {% assign article_url = article[url_key] %}
+        {% if article_url %}
+          <a href="{{ article_url }}">{{ lang.lang | upcase }}</a>
+        {% endif %}
+      {% endunless %}
+    {% endfor %}
+  </div>
+{% endif %}
 
-<div id="language-switcher">
-  {% for lang in site.languages %}
-    {% unless lang.lang == page.lang %}
-      {% assign other_title = article["title_" | append: lang.lang] %}
-      {% if other_title %}
-        {% assign other_url = "/Blog/blog/" | append: page.url | replace: "/#{page.lang}/", "/#{lang.lang}/" %}
-        <a href="{{ other_url }}">{{ lang.lang | upcase }}</a>
-      {% endif %}
-    {% endunless %}
-  {% endfor %}
-</div>
 
 
 
