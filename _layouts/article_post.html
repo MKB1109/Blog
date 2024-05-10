@@ -10,10 +10,11 @@
 <div id="language-switcher">
   {% assign current_lang = page.lang %}
   {% assign other_lang = current_lang == 'en' ? 'fr' : 'en' %}
-  {% assign other_url = page.url | replace: "/#{current_lang}/", "/#{other_lang}/" %}
+  {% assign other_url = page.url | replace: "/#{current_lang}/", "/#{other_lang}/" | replace: '/Blog/blog', '/blog' %}
   <a href="{{ other_url }}">Français</a>
   <!-- Add links for other languages as needed -->
 </div>
+
 
 
 
