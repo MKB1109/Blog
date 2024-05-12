@@ -6,20 +6,26 @@
   <title>{{ page.title }}</title>
 </head>
 <body>
-{% if page.lang %}
-  <p>Page Language: {{ page.lang }}</p>
-  {% assign permalink_parts = page.url | split: '/' %}
-  {% assign article_id = permalink_parts[3] %}
-  <p>Article ID: {{ article_id }}</p>
+{% if page.url contains "/blog/" %}
+  {% assign url_parts = page.url | split: "/" %}
+  {% assign article_id = url_parts[3] | append: "-" | append: url_parts[4] | append: "-" | append: url_parts[5] | append: "-" | append: url_parts[6] %}
+{% else %}
+  {% assign article_id = nil %}
+{% endif %}
+
+{% if article_id %}
   {% assign article = site.data.articles.articles | where: "id", article_id | first %}
   {% if article %}
-    <p>Article Data: {{ article | inspect }}</p>
-  {% else %}
-    <p>No article found for ID: {{ article_id }}</p>
+    <div id="language-switcher">
+      {% for lang in site.languages %}
+        {% if article["url_" | append: lang] %}
+          <a href="{{ article["url_" | append: lang] }}">{{ lang | upcase }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
   {% endif %}
-{% else %}
-  <p>Page language not set</p>
 {% endif %}
+
 
 
 
