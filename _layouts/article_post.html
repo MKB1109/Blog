@@ -6,6 +6,19 @@
   <title>{{ page.title }}</title>
 </head>
 <body>
+{% if page.lang %}
+  <p>Page Language: {{ page.lang }}</p>
+  {% assign article_id = page.id %}
+  <p>Article ID: {{ article_id }}</p>
+  {% assign article = site.data.articles.articles | where: "id", article_id | first %}
+  {% if article %}
+    <p>Article Data: {{ article | inspect }}</p>
+  {% else %}
+    <p>No article found for ID: {{ article_id }}</p>
+  {% endif %}
+{% else %}
+  <p>Page language not set</p>
+{% endif %}
 
 
 
