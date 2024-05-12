@@ -8,7 +8,8 @@
 <body>
 {% if page.lang %}
   <p>Page Language: {{ page.lang }}</p>
-  {% assign article_id = page.id %}
+  {% assign permalink_parts = page.url | split: '/' %}
+  {% assign article_id = permalink_parts[3] %}
   <p>Article ID: {{ article_id }}</p>
   {% assign article = site.data.articles.articles | where: "id", article_id | first %}
   {% if article %}
@@ -19,6 +20,7 @@
 {% else %}
   <p>Page language not set</p>
 {% endif %}
+
 
 
 
