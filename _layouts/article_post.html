@@ -22,77 +22,14 @@
   <a href="/Blog{{ french_url }}">Français</a>
 </div>
 
-<style>
-    body, html {
-      height: 100%;
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-    #container {
-      max-width: 800px;
-      width: 90%;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px; /* Adjust margin to create space from the top */
-    }
-    #scroll-btn {
-      margin-top: 20px; /* Adjust margin to create space from the top */
-      padding: 10px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      display: none;
-    }
-  </style>
-</head>
-<body>
-<div id="container">
+
+
+
+
   <h1>{{ page.title }}</h1>
   <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
 
   {{ content }}
-</div>
 
-<button id="scroll-btn" onclick="scrollToHeadlines()">Scroll to Headlines</button>
-
-<script>
-  function scrollToHeadlines() {
-    const headlines = document.querySelectorAll('h2, h3, h4, h5, h6');
-    const headlinePositions = Array.from(headlines).map(headline => headline.offsetTop);
-    const currentPosition = window.pageYOffset || document.documentElement.scrollTop;
-    let nearestHeadline = headlinePositions.find(position => position > currentPosition);
-
-    if (nearestHeadline === undefined) {
-      nearestHeadline = headlinePositions[headlinePositions.length - 1];
-    }
-
-    window.scrollTo({
-      top: nearestHeadline,
-      behavior: 'smooth'
-    });
-  }
-
-  window.addEventListener('scroll', function() {
-    const scrollBtn = document.getElementById('scroll-btn');
-    if (window.scrollY > 100) {
-      scrollBtn.style.display = 'block';
-    } else {
-      scrollBtn.style.display = 'none';
-    }
-  });
-</script>
 </body>
 </html>
