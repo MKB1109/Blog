@@ -6,7 +6,8 @@
   <title>{{ page.title }}</title>
 </head>
 <body>
-{% assign french_url = page.url | replace: '/EN/', '/FR/' %}
+{% assign current_url = page.url %}
+{% assign french_url = current_url | replace: '-EN/', '-FR/' %}
 
 <div id="language-switcher">
   <a href="{{ french_url }}">Français</a>
