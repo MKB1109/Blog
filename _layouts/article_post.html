@@ -6,12 +6,22 @@
   <title>{{ page.title }}</title>
 </head>
 <body>
-{% assign current_url = page.url %}
-{% assign french_url = current_url | replace: '-EN/', '-FR/' %}
+{% assign current_url_parts = page.url | split: '-' %}
+{% assign lang_index = current_url_parts | size | minus: 1 %}
+{% assign current_lang = current_url_parts[lang_index] %}
+
+{% if current_lang == "EN" %}
+  {% assign french_url_parts = current_url_parts | push: "FR" %}
+{% else %}
+  {% assign french_url_parts = current_url_parts | pop | push: "FR" %}
+{% endif %}
+
+{% assign french_url = french_url_parts | join: '-' %}
 
 <div id="language-switcher">
-  <a href="{{ french_url }}">Français</a>
+  <a href="/Blog{{ french_url }}">Français</a>
 </div>
+
 
 
 
