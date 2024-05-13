@@ -21,6 +21,7 @@
 <div id="language-switcher">
   <a href="/Blog{{ french_url }}">Français</a>
 </div>
+  {{ content }}
 
  <style>
     body, html {
@@ -62,8 +63,6 @@
 <div id="container">
   <h1>{{ page.title }}</h1>
   <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
-
-  {{ content }}
 </div>
 
 <button id="scroll-btn" onclick="scrollToHeadlines()">Scroll to Headlines</button>
