@@ -11,12 +11,13 @@
 
 <div id="language-switcher">
   {% if article %}
-    <a href="{{ article.url_en }}">English</a>
-    <a href="{{ article.url_fr }}">Français</a>
+    <a href="/Blog{{ article.url_en }}">English</a>
+    <a href="/Blog{{ article.url_fr }}">Français</a>
   {% else %}
     <p>Article not found</p>
   {% endif %}
 </div>
+
 
 
 
