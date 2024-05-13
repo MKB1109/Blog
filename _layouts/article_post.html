@@ -6,17 +6,11 @@
   <title>{{ page.title }}</title>
 </head>
 <body>
-{% assign article_id = page.id %}
-{% assign article = site.data.articles.articles | where: "id", article_id | first %}
-
 <div id="language-switcher">
-  {% if article_post %}
-    <a href="/Blog{{ article.url_en }}">English</a>
-    <a href="/Blog{{ article.url_fr }}">Français</a>
-  {% else %}
-    <p>Article not found</p>
-  {% endif %}
+  <a href="{{ page.url | replace: '/EN/', '/FR/' }}">English</a>
+  <a href="{{ page.url | replace: '/EN/', '/FR/' }}">Français</a>
 </div>
+
 
 
 
