@@ -6,13 +6,8 @@
   <title>{{ page.title }}</title>
 </head>
 <body>
-{% if page.url contains "/blog/" %}
-  {% assign url_parts = page.url | split: "/" %}
-  {% assign article_id = url_parts[3] | append: "-" | append: url_parts[4] | append: "-" | append: url_parts[5] | append: "-" | append: url_parts[6] %}
-  <p>Article ID: {{ article_id }}</p>
-{% else %}
-  <p>Page is not an article</p>
-{% endif %}
+
+
 
 
 
