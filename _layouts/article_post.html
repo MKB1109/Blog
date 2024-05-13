@@ -6,6 +6,13 @@
   <title>{{ page.title }}</title>
 </head>
 <body>
+{% assign article_id = page.id %}
+{% assign article = site.data.articles.articles | where: "id", article_id | first %}
+
+<div id="language-switcher">
+  <a href="{{ article.url_en }}">English</a>
+  <a href="{{ article.url_fr }}">Français</a>
+</div>
 
 
 
