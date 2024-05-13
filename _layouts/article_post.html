@@ -10,7 +10,7 @@
 {% assign article = site.data.articles.articles | where: "id", article_id | first %}
 
 <div id="language-switcher">
-  {% if article %}
+  {% if article_post %}
     <a href="/Blog{{ article.url_en }}">English</a>
     <a href="/Blog{{ article.url_fr }}">Français</a>
   {% else %}
