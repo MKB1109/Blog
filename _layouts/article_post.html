@@ -10,9 +10,14 @@
 {% assign article = site.data.articles.articles | where: "id", article_id | first %}
 
 <div id="language-switcher">
-  <a href="{{ article.url_en }}">English</a>
-  <a href="{{ article.url_fr }}">Français</a>
+  {% if article %}
+    <a href="{{ article.url_en }}">English</a>
+    <a href="{{ article.url_fr }}">Français</a>
+  {% else %}
+    <p>Article not found</p>
+  {% endif %}
 </div>
+
 
 
 
