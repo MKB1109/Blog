@@ -21,9 +21,8 @@
 <div id="language-switcher">
   <a href="/Blog{{ french_url }}">Français</a>
 </div>
-  {{ content }}
 
- <style>
+<style>
     body, html {
       height: 100%;
       margin: 0;
@@ -63,6 +62,10 @@
 <div id="container">
   <h1>{{ page.title }}</h1>
   <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
+
+  <div class="spacer"></div> <!-- Add spacing here -->
+
+  {{ content }}
 </div>
 
 <button id="scroll-btn" onclick="scrollToHeadlines()">Scroll to Headlines</button>
