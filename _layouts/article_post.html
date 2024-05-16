@@ -81,15 +81,38 @@
   </div>
 
   <div id="fixed-button">
-    <ul>
-      <li><a href="#headline-1">Headline 1</a></li>
-      <li><a href="#headline-2">Subheading 1</a></li>
-      <li><a href="#headline-3">Subheading 2</a></li>
-      <li><a href="#headline-4">Subheading 3</a></li>
+    <ul id="headline-list">
+      <!-- Headline links will be dynamically generated here -->
     </ul>
   </div>
 
   <script>
+    // Function to create an id for each heading if it doesn't already have one
+    function generateId(text) {
+      return text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+    }
+
+    // Get all the headings inside the container
+    const container = document.getElementById('container');
+    const headings = container.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const headlineList = document.getElementById('headline-list');
+
+    // Iterate over the headings to create the navigation links
+    headings.forEach((heading, index) => {
+      if (!heading.id) {
+        heading.id = generateId(heading.textContent);
+      }
+
+      const listItem = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = `#${heading.id}`;
+      link.textContent = heading.textContent;
+
+      listItem.appendChild(link);
+      headlineList.appendChild(listItem);
+    });
+
+    // Smooth scroll for the links
     document.querySelectorAll('#fixed-button a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
