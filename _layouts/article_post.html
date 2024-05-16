@@ -25,6 +25,31 @@
       top: 20px;
       right: 20px;
     }
+    #fixed-button {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #fixed-button ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #fixed-button ul li {
+      margin-bottom: 10px;
+    }
+    #fixed-button ul li a {
+      color: white;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -45,9 +70,34 @@
   </div>
 
   <div id="container">
-    <h1>{{ page.title }}</h1>
+    <h1 id="headline-1">{{ page.title }}</h1>
     <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
-    {{ content }}
+    <h2 id="headline-2">Subheading 1</h2>
+    <p>{{ content }}</p>
+    <h2 id="headline-3">Subheading 2</h2>
+    <p>{{ content }}</p>
+    <h2 id="headline-4">Subheading 3</h2>
+    <p>{{ content }}</p>
   </div>
+
+  <div id="fixed-button">
+    <ul>
+      <li><a href="#headline-1">Headline 1</a></li>
+      <li><a href="#headline-2">Subheading 1</a></li>
+      <li><a href="#headline-3">Subheading 2</a></li>
+      <li><a href="#headline-4">Subheading 3</a></li>
+    </ul>
+  </div>
+
+  <script>
+    document.querySelectorAll('#fixed-button a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
