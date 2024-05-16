@@ -27,17 +27,18 @@
     }
     #fixed-button {
       position: fixed;
-      right: 20px;
+      right: 10px;
       top: 50%;
       transform: translateY(-50%);
       background-color: #007BFF;
       color: white;
-      padding: 10px 10px;
+      padding: 5px 10px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       z-index: 1000;
       font-size: 12px;
+      width: 150px;
     }
     #fixed-button ul {
       list-style: none;
@@ -50,6 +51,7 @@
     #fixed-button ul li a {
       color: white;
       text-decoration: none;
+      font-size: 12px;
     }
   </style>
 </head>
@@ -100,7 +102,7 @@
     const headlineList = document.getElementById('headline-list');
 
     // Iterate over the headings to create the navigation links
-    headings.forEach((heading, index) => {
+    headings.forEach(heading => {
       if (!heading.id) {
         heading.id = generateId(heading.textContent);
       }
