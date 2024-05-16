@@ -91,22 +91,27 @@
   </div>
 
   <script>
-    // Function to create an id for each heading if it doesn't already have one
-    function generateId(text) {
-      return text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+  // Function to create an id for each heading if it doesn't already have one
+  function generateId(text) {
+    return text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+  }
+
+  // Get all the headings inside the container
+  const container = document.getElementById('container');
+  const headings = container.querySelectorAll('h1, h2');
+  const headlineList = document.getElementById('headline-list');
+
+  // Create an empty array to store unique headings
+  const uniqueHeadings = [];
+
+  // Iterate over headings to create navigation links and collect uniques
+  headings.forEach(heading => {
+    if (!heading.id) {
+      heading.id = generateId(heading.textContent);
     }
 
-    // Get all the headings inside the container
-    const container = document.getElementById('container');
-    const headings = container.querySelectorAll('h1, h2');
-    const headlineList = document.getElementById('headline-list');
-
-    // Iterate over the headings to create the navigation links
-    headings.forEach(heading => {
-      if (!heading.id) {
-        heading.id = generateId(heading.textContent);
-      }
-
+    // Check if heading text already exists in uniqueHeadings array 
+    if (!uniqueHeadings.includes(heading.textContent)) {
       const listItem = document.createElement('li');
       const link = document.createElement('a');
       link.href = `#${heading.id}`;
@@ -114,17 +119,19 @@
 
       listItem.appendChild(link);
       headlineList.appendChild(listItem);
-    });
 
-    // Smooth scroll for the links
-    document.querySelectorAll('#fixed-button a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+      // Add the unique heading text to the array
+      uniqueHeadings.push(heading.textContent);
+    }
+  });
+
+  // Smooth scroll for the links
+  document.querySelectorAll('#fixed-button a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
       });
     });
-  </script>
-</body>
-</html>
+  });
+</script>
