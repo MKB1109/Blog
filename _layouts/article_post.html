@@ -4,32 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #container {
+      width: 70%; /* 70% of the width, leaving 15% free on each side */
+      max-width: 1000px; /* optional, you can adjust this based on your preference */
+      margin: 0 auto;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background: #fff;
+    }
+    #language-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  </style>
 </head>
 <body>
-{% assign current_url_parts = page.url | split: '-' %}
-{% assign lang_index = current_url_parts | size | minus: 1 %}
-{% assign current_lang = current_url_parts[lang_index] %}
+  {% assign current_url_parts = page.url | split: '-' %}
+  {% assign lang_index = current_url_parts | size | minus: 1 %}
+  {% assign current_lang = current_url_parts[lang_index] %}
 
-{% if current_lang == "EN" %}
-  {% assign french_url_parts = current_url_parts | push: "FR" %}
-{% else %}
-  {% assign french_url_parts = current_url_parts | pop | push: "FR" %}
-{% endif %}
+  {% if current_lang == "EN" %}
+    {% assign french_url_parts = current_url_parts | push: "FR" %}
+  {% else %}
+    {% assign french_url_parts = current_url_parts | pop | push: "FR" %}
+  {% endif %}
 
-{% assign french_url = french_url_parts | join: '-' %}
+  {% assign french_url = french_url_parts | join: '-' %}
 
-<div id="language-switcher">
-  <a href="/Blog{{ french_url }}">Français</a>
-</div>
+  <div id="language-switcher">
+    <a href="/Blog{{ french_url }}">Français</a>
+  </div>
 
-
-
-
-
-  <h1>{{ page.title }}</h1>
-  <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
-
-  {{ content }}
-
+  <div id="container">
+    <h1>{{ page.title }}</h1>
+    <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
+    {{ content }}
+  </div>
 </body>
 </html>
