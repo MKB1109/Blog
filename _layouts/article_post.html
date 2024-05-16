@@ -25,34 +25,6 @@
       top: 20px;
       right: 20px;
     }
-    #fixed-button {
-      position: fixed;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: #007BFF;
-      color: white;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
-      font-size: 12px;
-      width: 150px;
-    }
-    #fixed-button ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    #fixed-button ul li {
-      margin-bottom: 5px;
-    }
-    #fixed-button ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 12px;
-    }
   </style>
 </head>
 <body>
@@ -73,65 +45,9 @@
   </div>
 
   <div id="container">
-    <h1 id="headline-1">Gender Divergence in political attitudes: Evidence from a mixed effects regression analysis across European countries</h1>
-    <h2 id="headline-2">Methodology:</h2>
-    <p>{{ content }}</p>
-    <h2 id="headline-3">Analysis:</h2>
-    <p>{{ content }}</p>
-    <h2 id="headline-4">Reflections:</h2>
-    <p>{{ content }}</p>
-    <h2 id="headline-5">Bibliography:</h2>
-    <p>{{ content }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
+    {{ content }}
   </div>
-
-  <div id="fixed-button">
-    <ul id="headline-list">
-      <!-- Headline links will be dynamically generated here -->
-    </ul>
-  </div>
-
-  <script>
-  // Function to create an id for each heading if it doesn't already have one
-  function generateId(text) {
-    return text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
-  }
-
-  // Get all the headings inside the container
-  const container = document.getElementById('container');
-  const headings = container.querySelectorAll('h1, h2');
-  const headlineList = document.getElementById('headline-list');
-
-  // Create an empty array to store unique headings
-  const uniqueHeadings = [];
-
-  // Iterate over headings to create navigation links and collect uniques
-  headings.forEach(heading => {
-    if (!heading.id) {
-      heading.id = generateId(heading.textContent);
-    }
-
-    // Check if heading text already exists in uniqueHeadings array 
-    if (!uniqueHeadings.includes(heading.textContent)) {
-      const listItem = document.createElement('li');
-      const link = document.createElement('a');
-      link.href = `#${heading.id}`;
-      link.textContent = heading.textContent;
-
-      listItem.appendChild(link);
-      headlineList.appendChild(listItem);
-
-      // Add the unique heading text to the array
-      uniqueHeadings.push(heading.textContent);
-    }
-  });
-
-  // Smooth scroll for the links
-  document.querySelectorAll('#fixed-button a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
+</body>
+</html>
