@@ -32,11 +32,12 @@
       transform: translateY(-50%);
       background-color: #007BFF;
       color: white;
-      padding: 10px 20px;
+      padding: 10px 10px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       z-index: 1000;
+      font-size: 12px;
     }
     #fixed-button ul {
       list-style: none;
@@ -44,7 +45,7 @@
       margin: 0;
     }
     #fixed-button ul li {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     #fixed-button ul li a {
       color: white;
@@ -70,13 +71,14 @@
   </div>
 
   <div id="container">
-    <h1 id="headline-1">{{ page.title }}</h1>
-    <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
-    <h2 id="headline-2">Subheading 1</h2>
+    <h1 id="headline-1">Gender Divergence in political attitudes: Evidence from a mixed effects regression analysis across European countries</h1>
+    <h2 id="headline-2">Methodology:</h2>
     <p>{{ content }}</p>
-    <h2 id="headline-3">Subheading 2</h2>
+    <h2 id="headline-3">Analysis:</h2>
     <p>{{ content }}</p>
-    <h2 id="headline-4">Subheading 3</h2>
+    <h2 id="headline-4">Reflections:</h2>
+    <p>{{ content }}</p>
+    <h2 id="headline-5">Bibliography:</h2>
     <p>{{ content }}</p>
   </div>
 
@@ -94,7 +96,7 @@
 
     // Get all the headings inside the container
     const container = document.getElementById('container');
-    const headings = container.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const headings = container.querySelectorAll('h1, h2');
     const headlineList = document.getElementById('headline-list');
 
     // Iterate over the headings to create the navigation links
