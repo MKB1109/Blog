@@ -32,12 +32,13 @@
       transform: translateY(-50%);
       background-color: #007BFF;
       color: white;
-      padding: 5px;
+      padding: 5px 10px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       z-index: 1000;
       font-size: 12px;
+      width: 150px;
     }
     #fixed-button ul {
       list-style: none;
@@ -73,14 +74,14 @@
 
   <div id="container">
     <h1 id="headline-1">Gender Divergence in political attitudes: Evidence from a mixed effects regression analysis across European countries</h1>
-    <h2 id="headline-2">Methodology</h2>
-    <p>{{ page.methodology }}</p>
-    <h2 id="headline-3">Analysis</h2>
-    <p>{{ page.analysis }}</p>
-    <h2 id="headline-4">Reflections</h2>
-    <p>{{ page.reflections }}</p>
-    <h2 id="headline-5">Bibliography</h2>
-    <p>{{ page.bibliography }}</p>
+    <h2 id="headline-2">Methodology:</h2>
+    <p>{{ content }}</p>
+    <h2 id="headline-3">Analysis:</h2>
+    <p>{{ content }}</p>
+    <h2 id="headline-4">Reflections:</h2>
+    <p>{{ content }}</p>
+    <h2 id="headline-5">Bibliography:</h2>
+    <p>{{ content }}</p>
   </div>
 
   <div id="fixed-button">
