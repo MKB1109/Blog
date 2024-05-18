@@ -25,6 +25,34 @@
       top: 20px;
       right: 20px;
     }
+    #fixed-button {
+      position: fixed;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #007BFF;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 12px;
+      width: 150px;
+    }
+    #fixed-button ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #fixed-button ul li {
+      margin-bottom: 5px;
+    }
+    #fixed-button ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+    }
   </style>
 </head>
 <body>
@@ -45,9 +73,58 @@
   </div>
 
   <div id="container">
-    <h1>{{ page.title }}</h1>
-    <p class="meta">Published on {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</p>
-    {{ content }}
+    <h1 id="headline-1">{{ page.title }}</h1>
+    <h2 id="headline-2">Methodology</h2>
+    <div id="content-methodology">{{ page.methodology }}</div>
+    <h2 id="headline-3">Analysis</h2>
+    <div id="content-analysis">{{ page.analysis }}</div>
+    <h2 id="headline-4">Reflections</h2>
+    <div id="content-reflections">{{ page.reflections }}</div>
+    <h2 id="headline-5">Bibliography</h2>
+    <div id="content-bibliography">{{ page.bibliography }}</div>
   </div>
+
+  <div id="fixed-button">
+    <ul id="headline-list">
+      <!-- Headline links will be dynamically generated here -->
+    </ul>
+  </div>
+
+  <script>
+    // Function to create an id for each heading if it doesn't already have one
+    function generateId(text) {
+      return text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+    }
+
+    // Get all the headings inside the container
+    const container = document.getElementById('container');
+    const headings = container.querySelectorAll('h1, h2');
+    const headlineList = document.getElementById('headline-list');
+
+    // Iterate over the headings to create the navigation links
+    headings.forEach(heading => {
+      if (!heading.id) {
+        heading.id = generateId(heading.textContent);
+      }
+
+      const listItem = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = `#${heading.id}`;
+      link.textContent = heading.textContent;
+
+      listItem.appendChild(link);
+      headlineList.appendChild(listItem);
+    });
+
+    // Smooth scroll for the links
+    document.querySelectorAll('#fixed-button a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
