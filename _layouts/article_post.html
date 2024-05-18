@@ -13,9 +13,9 @@
       justify-content: center;
     }
     #container {
-      width: 70%; /* 70% of the width, leaving 15% free on each side */
-      max-width: 1000px; /* Adjust this based on your preference */
-      margin: 20px auto; /* Margin to ensure spacing from the top */
+      width: 70%;
+      max-width: 1000px;
+      margin: 20px auto;
       padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       background: #fff;
@@ -73,15 +73,7 @@
   </div>
 
   <div id="container">
-    <h1 id="headline-1">{{ page.title }}</h1>
-    <h2 id="headline-2">Methodology</h2>
-    <div id="content-methodology">{{ page.methodology }}</div>
-    <h2 id="headline-3">Analysis</h2>
-    <div id="content-analysis">{{ page.analysis }}</div>
-    <h2 id="headline-4">Reflections</h2>
-    <div id="content-reflections">{{ page.reflections }}</div>
-    <h2 id="headline-5">Bibliography</h2>
-    <div id="content-bibliography">{{ page.bibliography }}</div>
+    {{ content }}
   </div>
 
   <div id="fixed-button">
