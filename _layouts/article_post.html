@@ -123,8 +123,8 @@
   {% assign current_lang = current_url_parts[lang_index] %}
 
   {% if current_lang == "EN" %}
-    {% assign french_url_parts = current_url_parts | push: "FR" %}
-    {% assign spanish_url_parts = current_url_parts | push: "ES" %}
+    {% assign french_url_parts = current_url_parts | pop | push: "FR" %}
+    {% assign spanish_url_parts = current_url_parts | pop | push: "ES" %}
   {% elsif current_lang == "FR" %}
     {% assign french_url_parts = current_url_parts %}
     {% assign spanish_url_parts = current_url_parts | pop | push: "ES" %}
