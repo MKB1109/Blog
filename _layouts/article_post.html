@@ -128,9 +128,12 @@
   {% elsif current_lang == "FR" %}
     {% assign french_url_parts = current_url_parts %}
     {% assign spanish_url_parts = current_url_parts | pop | push: "ES" %}
-  {% else %}
+  {% elsif current_lang == "ES" %}
     {% assign french_url_parts = current_url_parts | pop | push: "FR" %}
     {% assign spanish_url_parts = current_url_parts %}
+  {% else %}
+    {% assign french_url_parts = current_url_parts | pop | push: "FR" %}
+    {% assign spanish_url_parts = current_url_parts | pop | push: "ES" %}
   {% endif %}
 
   {% assign french_url = french_url_parts | join: '-' %}
