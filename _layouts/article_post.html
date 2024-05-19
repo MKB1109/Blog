@@ -24,14 +24,43 @@
       position: absolute;
       top: 20px;
       right: 20px;
+      z-index: 1000;
+    }
+    #language-switcher button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #007BFF;
+    }
+    #language-switcher ul {
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      background: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      right: 0;
+    }
+    #language-switcher ul li {
+      padding: 10px;
+      white-space: nowrap;
+    }
+    #language-switcher ul li a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+    #language-switcher:hover ul {
+      display: block;
     }
     #fixed-button {
       position: fixed;
       right: 10px;
       top: 50%;
       transform: translateY(-50%);
-      background-color: #ed6307;
-      color: black;
+      background-color: #007BFF;
+      color: white;
       padding: 5px 10px;
       border: none;
       border-radius: 5px;
@@ -49,7 +78,7 @@
       margin-bottom: 5px;
     }
     #fixed-button ul li a {
-      color: black;
+      color: white;
       text-decoration: none;
       font-size: 12px;
     }
@@ -65,26 +94,17 @@
       color: #555;
     }
     @media (max-width: 600px) {
-      body, html {
-        justify-content: flex-start;
-        flex-direction: column;
-        align-items: center;
-      }
       #fixed-button {
-        position: static;
+        position: relative;
+        top: auto;
         transform: none;
         margin: 20px auto;
-        width: auto;
+        width: 100%;
         text-align: center;
       }
-      #fixed-button ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
       #fixed-button ul li {
-        display: block;
-        margin: 5px;
+        display: inline;
+        margin: 0 5px;
       }
       #fixed-button ul li a {
         font-size: 14px;
@@ -93,7 +113,6 @@
         width: 100%;
         margin: 10px;
         padding: 10px;
-        box-shadow: none;
       }
     }
   </style>
@@ -125,6 +144,13 @@
     </ul>
   </div>
 
+  <div id="container">
+    <div class="article-header">
+      <h1>{{ page.title }}</h1>
+      <p>{{ page.date | date: "%B %d, %Y" }} by {{ page.author }}</p>
+    </div>
+    {{ content }}
+  </div>
 
   <div id="fixed-button">
     <ul id="headline-list">
