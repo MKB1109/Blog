@@ -108,20 +108,11 @@
       color: #555;
     }
     @media (max-width: 600px) {
+      body, html {
+        display: block;
+      }
       #fixed-button {
-        position: relative;
-        top: auto;
-        transform: none;
-        margin: 20px auto;
-        width: 100%;
-        text-align: center;
-      }
-      #fixed-button ul li {
-        display: inline;
-        margin: 0 5px;
-      }
-      #fixed-button ul li a {
-        font-size: 14px;
+        display: none;
       }
       #container {
         width: 100%;
@@ -206,6 +197,20 @@
         });
       });
     });
+
+    // Hide the fixed button on mobile devices
+    function checkScreenSize() {
+      const fixedButton = document.getElementById('fixed-button');
+      if (window.innerWidth <= 600) {
+        fixedButton.style.display = 'none';
+      } else {
+        fixedButton.style.display = 'block';
+      }
+    }
+
+    // Initial check and event listener for resizing
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
   </script>
 </body>
 </html>
