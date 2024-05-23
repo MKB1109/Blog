@@ -130,10 +130,14 @@
   {% assign english_url_parts = current_url_parts | pop | push: "EN" %}
   {% assign french_url_parts = current_url_parts | pop | push: "FR" %}
   {% assign spanish_url_parts = current_url_parts | pop | push: "ES" %}
+  {% assign norwegian_url_parts = current_url_parts | pop | push: "NO" %}
+
 
   {% assign english_url = english_url_parts | join: '-' %}
   {% assign french_url = french_url_parts | join: '-' %}
   {% assign spanish_url = spanish_url_parts | join: '-' %}
+  {% assign norwegian_url = norwegian_url_parts | join: '-' %}
+
 
   <div id="home-button">
     <a href="https://mkb1109.github.io/Blog/">Home</a>
@@ -145,6 +149,7 @@
       <li><a href="/Blog{{ english_url }}">English</a></li>
       <li><a href="/Blog{{ french_url }}">Français</a></li>
       <li><a href="/Blog{{ spanish_url }}">Español</a></li>
+      <li><a href="/Blog{{ norwegian_url }}">Norsk</a></li>
     </ul>
   </div>
 
